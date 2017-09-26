@@ -19,6 +19,8 @@ public class SdkJavaV1Sample {
         ApiClient apiClient = new ApiClient();
         apiClient.setUsername("UserName");
         apiClient.setPassword("Password");
+        //apiClient.setConnectTimeout(60000); Customise timeout by milliseconds if needed
+        
         
         //ConnectionApi
         ConnectionApi connectionClient = new ConnectionApi(apiClient);
