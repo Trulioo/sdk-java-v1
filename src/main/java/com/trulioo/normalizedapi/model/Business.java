@@ -32,8 +32,8 @@ public class Business {
   @SerializedName("BusinessName")
   private String businessName = null;
 
-  @SerializedName("RegistrationNumber")
-  private String registrationNumber = null;
+  @SerializedName("BusinessRegistrationNumber")
+  private String businessRegistrationNumber = null;
 
   @SerializedName("DayOfIncorporation")
   private Integer dayOfIncorporation = null;
@@ -62,22 +62,22 @@ public class Business {
     this.businessName = businessName;
   }
 
-  public Business registrationNumber(String registrationNumber) {
-    this.registrationNumber = registrationNumber;
+  public Business businessRegistrationNumber(String businessRegistrationNumber) {
+    this.businessRegistrationNumber = businessRegistrationNumber;
     return this;
   }
 
    /**
    * Registration number of business to be verified
-   * @return registrationNumber
+   * @return businessRegistrationNumber
   **/
   @ApiModelProperty(value = "Registration number of business to be verified")
-  public String getRegistrationNumber() {
-    return registrationNumber;
+  public String getBusinessRegistrationNumber() {
+    return businessRegistrationNumber;
   }
 
-  public void setRegistrationNumber(String registrationNumber) {
-    this.registrationNumber = registrationNumber;
+  public void setBusinessRegistrationNumber(String businessRegistrationNumber) {
+    this.businessRegistrationNumber = businessRegistrationNumber;
   }
 
   public Business dayOfIncorporation(Integer dayOfIncorporation) {
@@ -145,7 +145,7 @@ public class Business {
     }
     Business business = (Business) o;
     return Objects.equals(this.businessName, business.businessName) &&
-        Objects.equals(this.registrationNumber, business.registrationNumber) &&
+        Objects.equals(this.businessRegistrationNumber, business.businessRegistrationNumber) &&
         Objects.equals(this.dayOfIncorporation, business.dayOfIncorporation) &&
         Objects.equals(this.monthOfIncorporation, business.monthOfIncorporation) &&
         Objects.equals(this.yearOfIncorporation, business.yearOfIncorporation);
@@ -153,7 +153,7 @@ public class Business {
 
   @Override
   public int hashCode() {
-    return Objects.hash(businessName, registrationNumber, dayOfIncorporation, monthOfIncorporation, yearOfIncorporation);
+    return Objects.hash(businessName, businessRegistrationNumber, dayOfIncorporation, monthOfIncorporation, yearOfIncorporation);
   }
 
 
@@ -163,7 +163,7 @@ public class Business {
     sb.append("class Business {\n");
     
     sb.append("    businessName: ").append(toIndentedString(businessName)).append("\n");
-    sb.append("    registrationNumber: ").append(toIndentedString(registrationNumber)).append("\n");
+    sb.append("    businessRegistrationNumber: ").append(toIndentedString(businessRegistrationNumber)).append("\n");
     sb.append("    dayOfIncorporation: ").append(toIndentedString(dayOfIncorporation)).append("\n");
     sb.append("    monthOfIncorporation: ").append(toIndentedString(monthOfIncorporation)).append("\n");
     sb.append("    yearOfIncorporation: ").append(toIndentedString(yearOfIncorporation)).append("\n");
