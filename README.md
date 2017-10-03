@@ -6,19 +6,19 @@
 
 Trulioo provides a collection of API methods to help you build business processes powered by the GlobalGateway Normalized API. The Normalized API is a loosely coupled API; fields may be added to our services and responses as the API evolves, and a client must be able to safely ignore fields and data that are not expected. The GlobalGateway Normalized API can help automate your business processes by performing the following tasks:
 
-* Identity Verification
+#### Identity Verification
 
 Electronic identity verification (eIDV) was created specifically to help your business comply with Anti-Money Laundering (AML) and Know Your Customer (KYC) rules and has since evolved to support a diverse range of international electronic identity verification requirements.
 
-* Document Verification
+#### Document Verification
 
 ID Document Verification analyzes, verifies, and authenticates 3,5000 different types of identity documents from nearly every country in the world. The combination of eIDV and ID Document Verification during the Customer Due Diligence check can assist your business in meeting your AML, KYC and Counter Terrorist Financing (CTF) compliance requirements.
 
-* Business Verification
+#### Business Verification
 
 Business Verification analyzes, verifies and provides data intelligence for business entities in 83 countries. During Customer Due Diligence, Business Verification assists clients to automate compliance workflows, reduce manual front-to- back office operations, take advantage of digital processes, decrease the risk of fraud, and allow staff to focus on key compliance considerations.
 
-* AML Watchlist
+#### AML Watchlist
 
 Global AML Watchlist helps your business comply with domestic and international AML, CTF and sanctions enforcement regulations. The watchlist covers sanction lists, law enforcements lists and governing regulatory bodies from around the world.
 
