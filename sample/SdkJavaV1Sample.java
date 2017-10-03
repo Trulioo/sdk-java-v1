@@ -20,7 +20,6 @@ public class SdkJavaV1Sample {
         ApiClient apiClient = new ApiClient();
         apiClient.setUsername("UserName");
         apiClient.setPassword("Password");
-        //apiClient.setBasePath("https://api.dev-trulioo.com"); Set endpoint if not connecting to production
         //apiClient.setVerifyingSsl(false); Ignore ssl error if needed
         //apiClient.setConnectTimeout(60000); Customise timeout if needed
         
