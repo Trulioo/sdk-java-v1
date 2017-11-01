@@ -12,7 +12,7 @@ Electronic identity verification (eIDV) was created specifically to help your bu
 
 #### Document Verification
 
-ID Document Verification analyzes, verifies, and authenticates 3,5000 different types of identity documents from nearly every country in the world. The combination of eIDV and ID Document Verification during the Customer Due Diligence check can assist your business in meeting your AML, KYC and Counter Terrorist Financing (CTF) compliance requirements.
+ID Document Verification analyzes, verifies, and authenticates 3,500 different types of identity documents from nearly every country in the world. The combination of eIDV and ID Document Verification during the Customer Due Diligence check can assist your business in meeting your AML, KYC and Counter Terrorist Financing (CTF) compliance requirements.
 
 #### Business Verification
 
