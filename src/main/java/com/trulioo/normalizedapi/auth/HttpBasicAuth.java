@@ -15,7 +15,7 @@ package com.trulioo.normalizedapi.auth;
 
 import com.trulioo.normalizedapi.Pair;
 
-import com.squareup.okhttp.Credentials;
+import okhttp3.Credentials;
 
 import java.util.Map;
 import java.util.List;

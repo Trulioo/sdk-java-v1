@@ -64,7 +64,7 @@ public class ConfigurationApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getConsentsCall(String countryCode, String configurationName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call getConsentsCall(String countryCode, String configurationName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -91,10 +91,10 @@ public class ConfigurationApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().newBuilder().addNetworkInterceptor(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -107,7 +107,7 @@ public class ConfigurationApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getConsentsValidateBeforeCall(String countryCode, String configurationName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call getConsentsValidateBeforeCall(String countryCode, String configurationName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'countryCode' is set
         if (countryCode == null) {
@@ -120,7 +120,7 @@ public class ConfigurationApi {
         }
         
         
-        com.squareup.okhttp.Call call = getConsentsCall(countryCode, configurationName, progressListener, progressRequestListener);
+        okhttp3.Call call = getConsentsCall(countryCode, configurationName, progressListener, progressRequestListener);
         return call;
 
         
@@ -151,7 +151,7 @@ public class ConfigurationApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<List<String>> getConsentsWithHttpInfo(String countryCode, String configurationName) throws ApiException {
-        com.squareup.okhttp.Call call = getConsentsValidateBeforeCall(countryCode, configurationName, null, null);
+        okhttp3.Call call = getConsentsValidateBeforeCall(countryCode, configurationName, null, null);
         Type localVarReturnType = new TypeToken<List<String>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -165,7 +165,7 @@ public class ConfigurationApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getConsentsAsync(String countryCode, String configurationName, final ApiCallback<List<String>> callback) throws ApiException {
+    public okhttp3.Call getConsentsAsync(String countryCode, String configurationName, final ApiCallback<List<String>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -186,7 +186,7 @@ public class ConfigurationApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getConsentsValidateBeforeCall(countryCode, configurationName, progressListener, progressRequestListener);
+        okhttp3.Call call = getConsentsValidateBeforeCall(countryCode, configurationName, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<String>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -199,7 +199,7 @@ public class ConfigurationApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getCountryCodesCall(String configurationName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call getCountryCodesCall(String configurationName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -225,10 +225,10 @@ public class ConfigurationApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().newBuilder().addNetworkInterceptor(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -241,7 +241,7 @@ public class ConfigurationApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getCountryCodesValidateBeforeCall(String configurationName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call getCountryCodesValidateBeforeCall(String configurationName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'configurationName' is set
         if (configurationName == null) {
@@ -249,7 +249,7 @@ public class ConfigurationApi {
         }
         
         
-        com.squareup.okhttp.Call call = getCountryCodesCall(configurationName, progressListener, progressRequestListener);
+        okhttp3.Call call = getCountryCodesCall(configurationName, progressListener, progressRequestListener);
         return call;
 
         
@@ -278,7 +278,7 @@ public class ConfigurationApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<List<String>> getCountryCodesWithHttpInfo(String configurationName) throws ApiException {
-        com.squareup.okhttp.Call call = getCountryCodesValidateBeforeCall(configurationName, null, null);
+        okhttp3.Call call = getCountryCodesValidateBeforeCall(configurationName, null, null);
         Type localVarReturnType = new TypeToken<List<String>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -291,7 +291,7 @@ public class ConfigurationApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getCountryCodesAsync(String configurationName, final ApiCallback<List<String>> callback) throws ApiException {
+    public okhttp3.Call getCountryCodesAsync(String configurationName, final ApiCallback<List<String>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -312,7 +312,7 @@ public class ConfigurationApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getCountryCodesValidateBeforeCall(configurationName, progressListener, progressRequestListener);
+        okhttp3.Call call = getCountryCodesValidateBeforeCall(configurationName, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<String>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -325,7 +325,7 @@ public class ConfigurationApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getCountrySubdivisionsCall(String countryCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call getCountrySubdivisionsCall(String countryCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -351,10 +351,10 @@ public class ConfigurationApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().newBuilder().addNetworkInterceptor(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -367,7 +367,7 @@ public class ConfigurationApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getCountrySubdivisionsValidateBeforeCall(String countryCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call getCountrySubdivisionsValidateBeforeCall(String countryCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'countryCode' is set
         if (countryCode == null) {
@@ -375,7 +375,7 @@ public class ConfigurationApi {
         }
         
         
-        com.squareup.okhttp.Call call = getCountrySubdivisionsCall(countryCode, progressListener, progressRequestListener);
+        okhttp3.Call call = getCountrySubdivisionsCall(countryCode, progressListener, progressRequestListener);
         return call;
 
         
@@ -404,7 +404,7 @@ public class ConfigurationApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<List<CountrySubdivision>> getCountrySubdivisionsWithHttpInfo(String countryCode) throws ApiException {
-        com.squareup.okhttp.Call call = getCountrySubdivisionsValidateBeforeCall(countryCode, null, null);
+        okhttp3.Call call = getCountrySubdivisionsValidateBeforeCall(countryCode, null, null);
         Type localVarReturnType = new TypeToken<List<CountrySubdivision>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -417,7 +417,7 @@ public class ConfigurationApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getCountrySubdivisionsAsync(String countryCode, final ApiCallback<List<CountrySubdivision>> callback) throws ApiException {
+    public okhttp3.Call getCountrySubdivisionsAsync(String countryCode, final ApiCallback<List<CountrySubdivision>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -438,7 +438,7 @@ public class ConfigurationApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getCountrySubdivisionsValidateBeforeCall(countryCode, progressListener, progressRequestListener);
+        okhttp3.Call call = getCountrySubdivisionsValidateBeforeCall(countryCode, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<CountrySubdivision>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -451,7 +451,7 @@ public class ConfigurationApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getDocumentTypesCall(String countryCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call getDocumentTypesCall(String countryCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -477,10 +477,10 @@ public class ConfigurationApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().newBuilder().addNetworkInterceptor(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -493,7 +493,7 @@ public class ConfigurationApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getDocumentTypesValidateBeforeCall(String countryCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call getDocumentTypesValidateBeforeCall(String countryCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'countryCode' is set
         if (countryCode == null) {
@@ -501,7 +501,7 @@ public class ConfigurationApi {
         }
         
         
-        com.squareup.okhttp.Call call = getDocumentTypesCall(countryCode, progressListener, progressRequestListener);
+        okhttp3.Call call = getDocumentTypesCall(countryCode, progressListener, progressRequestListener);
         return call;
 
         
@@ -530,7 +530,7 @@ public class ConfigurationApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Map<String, List<String>>> getDocumentTypesWithHttpInfo(String countryCode) throws ApiException {
-        com.squareup.okhttp.Call call = getDocumentTypesValidateBeforeCall(countryCode, null, null);
+        okhttp3.Call call = getDocumentTypesValidateBeforeCall(countryCode, null, null);
         Type localVarReturnType = new TypeToken<Map<String, List<String>>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -543,7 +543,7 @@ public class ConfigurationApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getDocumentTypesAsync(String countryCode, final ApiCallback<Map<String, List<String>>> callback) throws ApiException {
+    public okhttp3.Call getDocumentTypesAsync(String countryCode, final ApiCallback<Map<String, List<String>>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -564,7 +564,7 @@ public class ConfigurationApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getDocumentTypesValidateBeforeCall(countryCode, progressListener, progressRequestListener);
+        okhttp3.Call call = getDocumentTypesValidateBeforeCall(countryCode, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Map<String, List<String>>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -578,7 +578,7 @@ public class ConfigurationApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getFieldsCall(String countryCode, String configurationName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call getFieldsCall(String countryCode, String configurationName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -605,10 +605,10 @@ public class ConfigurationApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().newBuilder().addNetworkInterceptor(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -621,7 +621,7 @@ public class ConfigurationApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getFieldsValidateBeforeCall(String countryCode, String configurationName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call getFieldsValidateBeforeCall(String countryCode, String configurationName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'countryCode' is set
         if (countryCode == null) {
@@ -634,7 +634,7 @@ public class ConfigurationApi {
         }
         
         
-        com.squareup.okhttp.Call call = getFieldsCall(countryCode, configurationName, progressListener, progressRequestListener);
+        okhttp3.Call call = getFieldsCall(countryCode, configurationName, progressListener, progressRequestListener);
         return call;
 
         
@@ -665,7 +665,7 @@ public class ConfigurationApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<Object> getFieldsWithHttpInfo(String countryCode, String configurationName) throws ApiException {
-        com.squareup.okhttp.Call call = getFieldsValidateBeforeCall(countryCode, configurationName, null, null);
+        okhttp3.Call call = getFieldsValidateBeforeCall(countryCode, configurationName, null, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -679,7 +679,7 @@ public class ConfigurationApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getFieldsAsync(String countryCode, String configurationName, final ApiCallback<Object> callback) throws ApiException {
+    public okhttp3.Call getFieldsAsync(String countryCode, String configurationName, final ApiCallback<Object> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -700,7 +700,7 @@ public class ConfigurationApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getFieldsValidateBeforeCall(countryCode, configurationName, progressListener, progressRequestListener);
+        okhttp3.Call call = getFieldsValidateBeforeCall(countryCode, configurationName, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
@@ -714,7 +714,7 @@ public class ConfigurationApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call getTestEntitiesCall(String configurationName, String countryCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public okhttp3.Call getTestEntitiesCall(String configurationName, String countryCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
         
         // create path and map variables
@@ -741,10 +741,10 @@ public class ConfigurationApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+            apiClient.getHttpClient().newBuilder().addNetworkInterceptor(new okhttp3.Interceptor() {
                 @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
                     return originalResponse.newBuilder()
                     .body(new ProgressResponseBody(originalResponse.body(), progressListener))
                     .build();
@@ -757,7 +757,7 @@ public class ConfigurationApi {
     }
     
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call getTestEntitiesValidateBeforeCall(String configurationName, String countryCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private okhttp3.Call getTestEntitiesValidateBeforeCall(String configurationName, String countryCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'configurationName' is set
         if (configurationName == null) {
@@ -770,7 +770,7 @@ public class ConfigurationApi {
         }
         
         
-        com.squareup.okhttp.Call call = getTestEntitiesCall(configurationName, countryCode, progressListener, progressRequestListener);
+        okhttp3.Call call = getTestEntitiesCall(configurationName, countryCode, progressListener, progressRequestListener);
         return call;
 
         
@@ -801,7 +801,7 @@ public class ConfigurationApi {
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
     public ApiResponse<List<DataFields>> getTestEntitiesWithHttpInfo(String configurationName, String countryCode) throws ApiException {
-        com.squareup.okhttp.Call call = getTestEntitiesValidateBeforeCall(configurationName, countryCode, null, null);
+        okhttp3.Call call = getTestEntitiesValidateBeforeCall(configurationName, countryCode, null, null);
         Type localVarReturnType = new TypeToken<List<DataFields>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -815,7 +815,7 @@ public class ConfigurationApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call getTestEntitiesAsync(String configurationName, String countryCode, final ApiCallback<List<DataFields>> callback) throws ApiException {
+    public okhttp3.Call getTestEntitiesAsync(String configurationName, String countryCode, final ApiCallback<List<DataFields>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -836,7 +836,7 @@ public class ConfigurationApi {
             };
         }
 
-        com.squareup.okhttp.Call call = getTestEntitiesValidateBeforeCall(configurationName, countryCode, progressListener, progressRequestListener);
+        okhttp3.Call call = getTestEntitiesValidateBeforeCall(configurationName, countryCode, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<DataFields>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
