@@ -23,3 +23,6 @@ build
 !*.prefs
 !*.classpath
 !*.project
+
+.idea
+*.iml
