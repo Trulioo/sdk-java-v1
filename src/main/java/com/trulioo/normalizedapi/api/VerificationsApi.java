@@ -13,6 +13,7 @@
 
 package com.trulioo.normalizedapi.api;
 
+import com.trulioo.normalizedapi.model.TransactionRecordResult;
 import com.trulioo.normalizedapi.ApiCallback;
 import com.trulioo.normalizedapi.ApiClient;
 import com.trulioo.normalizedapi.ApiException;
@@ -27,7 +28,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import com.trulioo.normalizedapi.model.TransactionRecordResult;
+import com.trulioo.normalizedapi.model.TransactionStatus;
 import com.trulioo.normalizedapi.model.VerifyRequest;
 import com.trulioo.normalizedapi.model.VerifyResult;
 
@@ -55,6 +56,7 @@ public class VerificationsApi {
     public void setApiClient(ApiClient apiClient) {
         this.apiClient = apiClient;
     }
+
 
     /**
      * Build call for getTransactionRecord
@@ -124,7 +126,7 @@ public class VerificationsApi {
     }
 
     /**
-     * This method is used to retrieve the request and results of a verification performed using the verify method.   The response for this method includes the same information as verify method&#39;s response, along with data present in the input fields of the verify request.
+     * This method is used to retrieve the request and results of a verification performed using the verify method.  The response for this method includes the same information as verify method&#39;s response, along with data present in the input fields of the verify request.
      * 
      * @param id id of the transactionrecord, this will be a GUID (required)
      * @return TransactionRecordResult
@@ -136,7 +138,7 @@ public class VerificationsApi {
     }
 
     /**
-     * This method is used to retrieve the request and results of a verification performed using the verify method.   The response for this method includes the same information as verify method&#39;s response, along with data present in the input fields of the verify request.
+     * This method is used to retrieve the request and results of a verification performed using the verify method.  The response for this method includes the same information as verify method&#39;s response, along with data present in the input fields of the verify request.
      * 
      * @param id id of the transactionrecord, this will be a GUID (required)
      * @return ApiResponse&lt;TransactionRecordResult&gt;
@@ -149,7 +151,7 @@ public class VerificationsApi {
     }
 
     /**
-     * This method is used to retrieve the request and results of a verification performed using the verify method.   The response for this method includes the same information as verify method&#39;s response, along with data present in the input fields of the verify request. (asynchronously)
+     * This method is used to retrieve the request and results of a verification performed using the verify method.  The response for this method includes the same information as verify method&#39;s response, along with data present in the input fields of the verify request. (asynchronously)
      * 
      * @param id id of the transactionrecord, this will be a GUID (required)
      * @param callback The callback to be executed when the API call finishes
@@ -431,6 +433,132 @@ public class VerificationsApi {
 
         okhttp3.Call call = getTransactionRecordVerboseValidateBeforeCall(id, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<TransactionRecordResult>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for getTransactionStatus
+     * @param id id of the asynchronous transaction, this will be a GUID (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call getTransactionStatusCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        
+        // create path and map variables
+        String localVarPath = "/verifications/v1/transaction/{id}/status"
+            .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().newBuilder().addNetworkInterceptor(new okhttp3.Interceptor() {
+                @Override
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "basic" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getTransactionStatusValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException("Missing the required parameter 'id' when calling getTransactionStatus(Async)");
+        }
+        
+        
+        okhttp3.Call call = getTransactionStatusCall(id, progressListener, progressRequestListener);
+        return call;
+
+        
+        
+        
+        
+    }
+
+    /**
+     * This method is used to retrieve the processing status of an asynchronous transaction. The response for this method includes the processing status of the verification, the TransactionID, the TransactionRecordID as well as whether the verification request has timed out.
+     * 
+     * @param id id of the asynchronous transaction, this will be a GUID (required)
+     * @return TransactionStatus
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public TransactionStatus getTransactionStatus(String id) throws ApiException {
+        ApiResponse<TransactionStatus> resp = getTransactionStatusWithHttpInfo(id);
+        return resp.getData();
+    }
+
+    /**
+     * This method is used to retrieve the processing status of an asynchronous transaction. The response for this method includes the processing status of the verification, the TransactionID, the TransactionRecordID as well as whether the verification request has timed out.
+     * 
+     * @param id id of the asynchronous transaction, this will be a GUID (required)
+     * @return ApiResponse&lt;TransactionStatus&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<TransactionStatus> getTransactionStatusWithHttpInfo(String id) throws ApiException {
+        okhttp3.Call call = getTransactionStatusValidateBeforeCall(id, null, null);
+        Type localVarReturnType = new TypeToken<TransactionStatus>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * This method is used to retrieve the processing status of an asynchronous transaction. The response for this method includes the processing status of the verification, the TransactionID, the TransactionRecordID as well as whether the verification request has timed out. (asynchronously)
+     * 
+     * @param id id of the asynchronous transaction, this will be a GUID (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call getTransactionStatusAsync(String id, final ApiCallback<TransactionStatus> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        okhttp3.Call call = getTransactionStatusValidateBeforeCall(id, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<TransactionStatus>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

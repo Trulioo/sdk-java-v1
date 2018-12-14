@@ -32,6 +32,7 @@ import java.io.StringReader;
 import java.lang.reflect.Type;
 import java.util.Date;
 
+import okio.ByteString;
 import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
 import org.joda.time.format.DateTimeFormatter;
@@ -52,6 +53,7 @@ public class JSON {
             .registerTypeAdapter(Date.class, new DateAdapter(apiClient))
             .registerTypeAdapter(DateTime.class, new DateTimeTypeAdapter())
             .registerTypeAdapter(LocalDate.class, new LocalDateTypeAdapter())
+            .registerTypeAdapter(byte[].class, new ByteArrayAdapter())
             .create();
     }
 
@@ -220,6 +222,34 @@ class LocalDateTypeAdapter extends TypeAdapter<LocalDate> {
             default:
                 String date = in.nextString();
                 return formatter.parseLocalDate(date);
+        }
+    }
+}
+
+/**
+ * Gson TypeAdapter for Byte Array type
+ */
+class ByteArrayAdapter extends TypeAdapter<byte[]> {
+
+    @Override
+    public void write(JsonWriter out, byte[] value) throws IOException {
+        if (value == null) {
+            out.nullValue();
+        } else {
+            out.value(ByteString.of(value).base64());
+        }
+    }
+
+    @Override
+    public byte[] read(JsonReader in) throws IOException {
+        switch (in.peek()) {
+            case NULL:
+                in.nextNull();
+                return null;
+            default:
+                String bytesAsBase64 = in.nextString();
+                ByteString byteString = ByteString.decodeBase64(bytesAsBase64);
+                return byteString.toByteArray();
         }
     }
 }
