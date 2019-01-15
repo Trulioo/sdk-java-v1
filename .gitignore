@@ -23,3 +23,5 @@ build
 !*.prefs
 !*.classpath
 !*.project
+
+.idea

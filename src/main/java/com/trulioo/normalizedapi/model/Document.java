@@ -14,20 +14,16 @@
 package com.trulioo.normalizedapi.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
+
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * 
  */
 @ApiModel(description = "")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-25T15:36:47.107-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-12-03T13:54:47.084-08:00")
 public class Document {
   @SerializedName("DocumentFrontImage")
   private byte[] documentFrontImage = null;
@@ -40,6 +36,12 @@ public class Document {
 
   @SerializedName("DocumentType")
   private String documentType = null;
+
+  @SerializedName("AcceptIncompleteDocument")
+  private Boolean acceptIncompleteDocument = null;
+
+  @SerializedName("ValidateDocumentImageQuality")
+  private Boolean validateDocumentImageQuality = null;
 
   public Document documentFrontImage(byte[] documentFrontImage) {
     this.documentFrontImage = documentFrontImage;
@@ -113,6 +115,42 @@ public class Document {
     this.documentType = documentType;
   }
 
+  public Document acceptIncompleteDocument(Boolean acceptIncompleteDocument) {
+    this.acceptIncompleteDocument = acceptIncompleteDocument;
+    return this;
+  }
+
+   /**
+   * Accept Incomplete Document
+   * @return acceptIncompleteDocument
+  **/
+  @ApiModelProperty(value = "Accept Incomplete Document")
+  public Boolean getAcceptIncompleteDocument() {
+    return acceptIncompleteDocument;
+  }
+
+  public void setAcceptIncompleteDocument(Boolean acceptIncompleteDocument) {
+    this.acceptIncompleteDocument = acceptIncompleteDocument;
+  }
+
+  public Document validateDocumentImageQuality(Boolean validateDocumentImageQuality) {
+    this.validateDocumentImageQuality = validateDocumentImageQuality;
+    return this;
+  }
+
+   /**
+   * Validate Document Image Quality
+   * @return validateDocumentImageQuality
+  **/
+  @ApiModelProperty(value = "Validate Document Image Quality")
+  public Boolean getValidateDocumentImageQuality() {
+    return validateDocumentImageQuality;
+  }
+
+  public void setValidateDocumentImageQuality(Boolean validateDocumentImageQuality) {
+    this.validateDocumentImageQuality = validateDocumentImageQuality;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -126,12 +164,14 @@ public class Document {
     return Objects.equals(this.documentFrontImage, document.documentFrontImage) &&
         Objects.equals(this.documentBackImage, document.documentBackImage) &&
         Objects.equals(this.livePhoto, document.livePhoto) &&
-        Objects.equals(this.documentType, document.documentType);
+        Objects.equals(this.documentType, document.documentType) &&
+        Objects.equals(this.acceptIncompleteDocument, document.acceptIncompleteDocument) &&
+        Objects.equals(this.validateDocumentImageQuality, document.validateDocumentImageQuality);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(documentFrontImage, documentBackImage, livePhoto, documentType);
+    return Objects.hash(documentFrontImage, documentBackImage, livePhoto, documentType, acceptIncompleteDocument, validateDocumentImageQuality);
   }
 
 
@@ -144,6 +184,8 @@ public class Document {
     sb.append("    documentBackImage: ").append(toIndentedString(documentBackImage)).append("\n");
     sb.append("    livePhoto: ").append(toIndentedString(livePhoto)).append("\n");
     sb.append("    documentType: ").append(toIndentedString(documentType)).append("\n");
+    sb.append("    acceptIncompleteDocument: ").append(toIndentedString(acceptIncompleteDocument)).append("\n");
+    sb.append("    validateDocumentImageQuality: ").append(toIndentedString(validateDocumentImageQuality)).append("\n");
     sb.append("}");
     return sb.toString();
   }

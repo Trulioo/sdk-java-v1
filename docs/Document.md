@@ -8,6 +8,8 @@ Name | Type | Description | Notes
 **documentBackImage** | **byte[]** | Back of the document |  [optional]
 **livePhoto** | **byte[]** | Selfie image |  [optional]
 **documentType** | **String** | Document type |  [optional]
+**acceptIncompleteDocument** | **Boolean** | Accept Incomplete Document |  [optional]
+**validateDocumentImageQuality** | **Boolean** | Validate Document Image Quality |  [optional]
 
 
 

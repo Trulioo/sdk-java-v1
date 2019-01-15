@@ -14,22 +14,11 @@
 package com.trulioo.normalizedapi.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
+
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.trulioo.normalizedapi.model.Business;
-import com.trulioo.normalizedapi.model.Communication;
-import com.trulioo.normalizedapi.model.Document;
-import com.trulioo.normalizedapi.model.DriverLicence;
-import com.trulioo.normalizedapi.model.Location;
-import com.trulioo.normalizedapi.model.NationalId;
-import com.trulioo.normalizedapi.model.Passport;
-import com.trulioo.normalizedapi.model.PersonInfo;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -39,7 +28,7 @@ import java.util.Map;
  * The data field name-value pairs for the data elements on which the verification is to be performed
  */
 @ApiModel(description = "The data field name-value pairs for the data elements on which the verification is to be performed")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-25T15:36:47.107-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-12-03T13:54:47.084-08:00")
 public class DataFields {
   @SerializedName("PersonInfo")
   private PersonInfo personInfo = null;
