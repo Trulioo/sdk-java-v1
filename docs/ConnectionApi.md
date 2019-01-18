@@ -4,9 +4,53 @@ All URIs are relative to *https://api.globaldatacompany.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**connectionAsyncCallbackUrl**](ConnectionApi.md#connectionAsyncCallbackUrl) | **POST** /connection/v1/async-callback | If set, the transaction will run asynchronously and Trulioo will try to update the client with transaction state updates until completed. If callback is not desired but the client wants to initiate an asynchronous transaction, provide https://api.globaldatacompany.com/connection/v1/async-callback as the Callback URL.
 [**sayHello**](ConnectionApi.md#sayHello) | **GET** /connection/v1/sayhello/{name} | This method enables you to check if your system can connect to our system. You can even use a web browser to verify a connection to our system.
 [**testAuthentication**](ConnectionApi.md#testAuthentication) | **GET** /connection/v1/testauthentication | This method enables you to check if your credentials are valid. You will need to use basic authentication to ensure a successful response.
 
+
+<a name="connectionAsyncCallbackUrl"></a>
+# **connectionAsyncCallbackUrl**
+> Object connectionAsyncCallbackUrl(transactionStatus)
+
+If set, the transaction will run asynchronously and Trulioo will try to update the client with transaction state updates until completed. If callback is not desired but the client wants to initiate an asynchronous transaction, provide https://api.globaldatacompany.com/connection/v1/async-callback as the Callback URL.
+
+### Example
+```java
+// Import classes:
+//import ApiException;
+//import ConnectionApi;
+
+
+ConnectionApi apiInstance = new ConnectionApi();
+TransactionStatus transactionStatus = new TransactionStatus(); // TransactionStatus | transactionStatus
+try {
+    Object result = apiInstance.connectionAsyncCallbackUrl(transactionStatus);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ConnectionApi#connectionAsyncCallbackUrl");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **transactionStatus** | [**TransactionStatus**](TransactionStatus.md)| transactionStatus |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json
+ - **Accept**: application/json, text/json
 
 <a name="sayHello"></a>
 # **sayHello**
@@ -17,8 +61,8 @@ This method enables you to check if your system can connect to our system. You c
 ### Example
 ```java
 // Import classes:
-//import com.trulioo.normalizedapi.ApiException;
-//import com.trulioo.normalizedapi.api.ConnectionApi;
+//import ApiException;
+//import ConnectionApi;
 
 
 ConnectionApi apiInstance = new ConnectionApi();
@@ -60,11 +104,11 @@ This method enables you to check if your credentials are valid. You will need to
 ### Example
 ```java
 // Import classes:
-//import com.trulioo.normalizedapi.ApiClient;
-//import com.trulioo.normalizedapi.ApiException;
-//import com.trulioo.normalizedapi.Configuration;
+//import ApiClient;
+//import ApiException;
+//import Configuration;
 //import com.trulioo.normalizedapi.auth.*;
-//import com.trulioo.normalizedapi.api.ConnectionApi;
+//import ConnectionApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 

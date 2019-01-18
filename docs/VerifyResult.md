@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **countryCode** | **String** | Country Code |  [optional]
 **productName** | **String** | Product Name |  [optional]
 **record** | [**Record**](Record.md) |  |  [optional]
+**customerReferenceID** | **String** | Customer Reference Id |  [optional]
 **errors** | [**List&lt;ServiceError&gt;**](ServiceError.md) |  |  [optional]
 
 

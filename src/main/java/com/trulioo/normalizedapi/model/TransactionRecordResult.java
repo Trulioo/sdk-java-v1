@@ -14,18 +14,11 @@
 package com.trulioo.normalizedapi.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
+
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.trulioo.normalizedapi.model.DataField;
-import com.trulioo.normalizedapi.model.Record;
-import com.trulioo.normalizedapi.model.ServiceError;
-import com.trulioo.normalizedapi.model.VerifyResult;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
 import org.joda.time.DateTime;
@@ -34,7 +27,7 @@ import org.joda.time.DateTime;
  * 
  */
 @ApiModel(description = "")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-25T15:36:47.107-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-12-03T13:54:47.084-08:00")
 public class TransactionRecordResult {
   @SerializedName("TransactionID")
   private String transactionID = null;
@@ -50,6 +43,9 @@ public class TransactionRecordResult {
 
   @SerializedName("Record")
   private Record record = null;
+
+  @SerializedName("CustomerReferenceID")
+  private String customerReferenceID = null;
 
   @SerializedName("Errors")
   private List<ServiceError> errors = null;
@@ -147,6 +143,24 @@ public class TransactionRecordResult {
     this.record = record;
   }
 
+  public TransactionRecordResult customerReferenceID(String customerReferenceID) {
+    this.customerReferenceID = customerReferenceID;
+    return this;
+  }
+
+   /**
+   * Customer Reference Id
+   * @return customerReferenceID
+  **/
+  @ApiModelProperty(value = "Customer Reference Id")
+  public String getCustomerReferenceID() {
+    return customerReferenceID;
+  }
+
+  public void setCustomerReferenceID(String customerReferenceID) {
+    this.customerReferenceID = customerReferenceID;
+  }
+
   public TransactionRecordResult errors(List<ServiceError> errors) {
     this.errors = errors;
     return this;
@@ -214,13 +228,14 @@ public class TransactionRecordResult {
         Objects.equals(this.countryCode, transactionRecordResult.countryCode) &&
         Objects.equals(this.productName, transactionRecordResult.productName) &&
         Objects.equals(this.record, transactionRecordResult.record) &&
+        Objects.equals(this.customerReferenceID, transactionRecordResult.customerReferenceID) &&
         Objects.equals(this.errors, transactionRecordResult.errors) &&
         Objects.equals(this.inputFields, transactionRecordResult.inputFields);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(transactionID, uploadedDt, countryCode, productName, record, errors, inputFields);
+    return Objects.hash(transactionID, uploadedDt, countryCode, productName, record, customerReferenceID, errors, inputFields);
   }
 
 
@@ -234,6 +249,7 @@ public class TransactionRecordResult {
     sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
     sb.append("    productName: ").append(toIndentedString(productName)).append("\n");
     sb.append("    record: ").append(toIndentedString(record)).append("\n");
+    sb.append("    customerReferenceID: ").append(toIndentedString(customerReferenceID)).append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("    inputFields: ").append(toIndentedString(inputFields)).append("\n");
     sb.append("}");

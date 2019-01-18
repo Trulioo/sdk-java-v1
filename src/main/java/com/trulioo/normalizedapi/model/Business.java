@@ -14,20 +14,16 @@
 package com.trulioo.normalizedapi.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
+
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
 
 /**
  * 
  */
 @ApiModel(description = "")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-25T15:36:47.107-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-12-03T13:54:47.084-08:00")
 public class Business {
   @SerializedName("BusinessName")
   private String businessName = null;
@@ -43,6 +39,21 @@ public class Business {
 
   @SerializedName("YearOfIncorporation")
   private Integer yearOfIncorporation = null;
+
+  @SerializedName("JurisdictionOfIncorporation")
+  private String jurisdictionOfIncorporation = null;
+
+  @SerializedName("ShareholderListDocument")
+  private Boolean shareholderListDocument = null;
+
+  @SerializedName("FinancialInformationDocument")
+  private Boolean financialInformationDocument = null;
+
+  @SerializedName("DunsNumber")
+  private String dunsNumber = null;
+
+  @SerializedName("Entities")
+  private Boolean entities = null;
 
   public Business businessName(String businessName) {
     this.businessName = businessName;
@@ -134,6 +145,96 @@ public class Business {
     this.yearOfIncorporation = yearOfIncorporation;
   }
 
+  public Business jurisdictionOfIncorporation(String jurisdictionOfIncorporation) {
+    this.jurisdictionOfIncorporation = jurisdictionOfIncorporation;
+    return this;
+  }
+
+   /**
+   * Jurisdiction Of Incorporation of the business to be verified
+   * @return jurisdictionOfIncorporation
+  **/
+  @ApiModelProperty(value = "Jurisdiction Of Incorporation of the business to be verified")
+  public String getJurisdictionOfIncorporation() {
+    return jurisdictionOfIncorporation;
+  }
+
+  public void setJurisdictionOfIncorporation(String jurisdictionOfIncorporation) {
+    this.jurisdictionOfIncorporation = jurisdictionOfIncorporation;
+  }
+
+  public Business shareholderListDocument(Boolean shareholderListDocument) {
+    this.shareholderListDocument = shareholderListDocument;
+    return this;
+  }
+
+   /**
+   * Whether or not to retrieve shareholderList document
+   * @return shareholderListDocument
+  **/
+  @ApiModelProperty(value = "Whether or not to retrieve shareholderList document")
+  public Boolean getShareholderListDocument() {
+    return shareholderListDocument;
+  }
+
+  public void setShareholderListDocument(Boolean shareholderListDocument) {
+    this.shareholderListDocument = shareholderListDocument;
+  }
+
+  public Business financialInformationDocument(Boolean financialInformationDocument) {
+    this.financialInformationDocument = financialInformationDocument;
+    return this;
+  }
+
+   /**
+   * Whether or not to retrieve financial information document
+   * @return financialInformationDocument
+  **/
+  @ApiModelProperty(value = "Whether or not to retrieve financial information document")
+  public Boolean getFinancialInformationDocument() {
+    return financialInformationDocument;
+  }
+
+  public void setFinancialInformationDocument(Boolean financialInformationDocument) {
+    this.financialInformationDocument = financialInformationDocument;
+  }
+
+  public Business dunsNumber(String dunsNumber) {
+    this.dunsNumber = dunsNumber;
+    return this;
+  }
+
+   /**
+   * Duns Number
+   * @return dunsNumber
+  **/
+  @ApiModelProperty(value = "Duns Number")
+  public String getDunsNumber() {
+    return dunsNumber;
+  }
+
+  public void setDunsNumber(String dunsNumber) {
+    this.dunsNumber = dunsNumber;
+  }
+
+  public Business entities(Boolean entities) {
+    this.entities = entities;
+    return this;
+  }
+
+   /**
+   * Whether or not to retrieve entity detail
+   * @return entities
+  **/
+  @ApiModelProperty(value = "Whether or not to retrieve entity detail")
+  public Boolean getEntities() {
+    return entities;
+  }
+
+  public void setEntities(Boolean entities) {
+    this.entities = entities;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -148,12 +249,17 @@ public class Business {
         Objects.equals(this.businessRegistrationNumber, business.businessRegistrationNumber) &&
         Objects.equals(this.dayOfIncorporation, business.dayOfIncorporation) &&
         Objects.equals(this.monthOfIncorporation, business.monthOfIncorporation) &&
-        Objects.equals(this.yearOfIncorporation, business.yearOfIncorporation);
+        Objects.equals(this.yearOfIncorporation, business.yearOfIncorporation) &&
+        Objects.equals(this.jurisdictionOfIncorporation, business.jurisdictionOfIncorporation) &&
+        Objects.equals(this.shareholderListDocument, business.shareholderListDocument) &&
+        Objects.equals(this.financialInformationDocument, business.financialInformationDocument) &&
+        Objects.equals(this.dunsNumber, business.dunsNumber) &&
+        Objects.equals(this.entities, business.entities);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(businessName, businessRegistrationNumber, dayOfIncorporation, monthOfIncorporation, yearOfIncorporation);
+    return Objects.hash(businessName, businessRegistrationNumber, dayOfIncorporation, monthOfIncorporation, yearOfIncorporation, jurisdictionOfIncorporation, shareholderListDocument, financialInformationDocument, dunsNumber, entities);
   }
 
 
@@ -167,6 +273,11 @@ public class Business {
     sb.append("    dayOfIncorporation: ").append(toIndentedString(dayOfIncorporation)).append("\n");
     sb.append("    monthOfIncorporation: ").append(toIndentedString(monthOfIncorporation)).append("\n");
     sb.append("    yearOfIncorporation: ").append(toIndentedString(yearOfIncorporation)).append("\n");
+    sb.append("    jurisdictionOfIncorporation: ").append(toIndentedString(jurisdictionOfIncorporation)).append("\n");
+    sb.append("    shareholderListDocument: ").append(toIndentedString(shareholderListDocument)).append("\n");
+    sb.append("    financialInformationDocument: ").append(toIndentedString(financialInformationDocument)).append("\n");
+    sb.append("    dunsNumber: ").append(toIndentedString(dunsNumber)).append("\n");
+    sb.append("    entities: ").append(toIndentedString(entities)).append("\n");
     sb.append("}");
     return sb.toString();
   }

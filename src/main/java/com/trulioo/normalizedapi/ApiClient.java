@@ -14,6 +14,13 @@
 package com.trulioo.normalizedapi;
 
 import java.lang.reflect.Type;
+
+import okhttp3.*;
+import okhttp3.OkHttpClient.Builder;
+import okhttp3.internal.http.HttpMethod;
+import okhttp3.logging.HttpLoggingInterceptor;
+import okhttp3.logging.HttpLoggingInterceptor.Level;
+
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Map;
@@ -49,25 +56,18 @@ import java.text.ParseException;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.KeyManager;
-import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
 
-import okio.BufferedSink;
-import okio.Okio;
-
+import com.trulioo.normalizedapi.auth.ApiKeyAuth;
 import com.trulioo.normalizedapi.auth.Authentication;
 import com.trulioo.normalizedapi.auth.HttpBasicAuth;
-import com.trulioo.normalizedapi.auth.ApiKeyAuth;
 import com.trulioo.normalizedapi.auth.OAuth;
-import okhttp3.*;
-import okhttp3.OkHttpClient.Builder;
-import okhttp3.internal.http.HttpMethod;
-import okhttp3.logging.HttpLoggingInterceptor;
-import okhttp3.logging.HttpLoggingInterceptor.Level;
+import okio.BufferedSink;
+import okio.Okio;
 
 public class ApiClient {
     public static final double JAVA_VERSION;
@@ -131,8 +131,9 @@ public class ApiClient {
         Builder clientBuilder = new Builder();
         clientBuilder.connectTimeout(60, TimeUnit.SECONDS);
         clientBuilder.readTimeout(60, TimeUnit.SECONDS);
+        clientBuilder.writeTimeout(60, TimeUnit.SECONDS);
         httpClient = clientBuilder.build();
-		
+
         verifyingSsl = true;
 
         json = new JSON(this);
@@ -151,7 +152,7 @@ public class ApiClient {
         this.lenientDatetimeFormat = true;
 
         // Set default User-Agent.
-        setUserAgent("trulioo-sdk-java/1.0.0");
+        setUserAgent("trulioo-sdk-java/1.0.2.0");
 
         // Setup authentications (key: authentication name, value: authentication).
         authentications = new HashMap<String, Authentication>();
@@ -159,7 +160,7 @@ public class ApiClient {
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
     }
-    
+
     /**
      * Get base path
      *
@@ -524,6 +525,10 @@ public class ApiClient {
     public ApiClient setUserAgent(String userAgent) {
         addDefaultHeader("User-Agent", userAgent);
         return this;
+    }
+
+    public String getUserAgent() {
+        return defaultHeaderMap.get("User-Agent");
     }
 
     /**
@@ -1296,7 +1301,7 @@ public class ApiClient {
                     @Override
                     public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {}
                     @Override
-                    public X509Certificate[] getAcceptedIssuers() { return null; }
+                    public X509Certificate[] getAcceptedIssuers() { return new X509Certificate[0]; }
                 };
                 SSLContext sslContext = SSLContext.getInstance("TLS");
                 trustManagers = new TrustManager[]{ trustAll };
@@ -1326,7 +1331,7 @@ public class ApiClient {
             if (keyManagers != null || trustManagers != null) {
                 SSLContext sslContext = SSLContext.getInstance("TLS");
                 sslContext.init(keyManagers, trustManagers, new SecureRandom());
-                builder.socketFactory(sslContext.getSocketFactory());
+                builder.sslSocketFactory(sslContext.getSocketFactory(), (X509TrustManager)trustManagers[0]);
             } else {
                 builder.socketFactory(null);
             }

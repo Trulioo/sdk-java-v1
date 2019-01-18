@@ -14,16 +14,11 @@
 package com.trulioo.normalizedapi.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
+
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.trulioo.normalizedapi.model.Record;
-import com.trulioo.normalizedapi.model.ServiceError;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
 import org.joda.time.DateTime;
@@ -32,7 +27,7 @@ import org.joda.time.DateTime;
  * 
  */
 @ApiModel(description = "")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-25T15:36:47.107-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-12-03T13:54:47.084-08:00")
 public class VerifyResult {
   @SerializedName("TransactionID")
   private String transactionID = null;
@@ -48,6 +43,9 @@ public class VerifyResult {
 
   @SerializedName("Record")
   private Record record = null;
+
+  @SerializedName("CustomerReferenceID")
+  private String customerReferenceID = null;
 
   @SerializedName("Errors")
   private List<ServiceError> errors = null;
@@ -142,6 +140,24 @@ public class VerifyResult {
     this.record = record;
   }
 
+  public VerifyResult customerReferenceID(String customerReferenceID) {
+    this.customerReferenceID = customerReferenceID;
+    return this;
+  }
+
+   /**
+   * Customer Reference Id
+   * @return customerReferenceID
+  **/
+  @ApiModelProperty(value = "Customer Reference Id")
+  public String getCustomerReferenceID() {
+    return customerReferenceID;
+  }
+
+  public void setCustomerReferenceID(String customerReferenceID) {
+    this.customerReferenceID = customerReferenceID;
+  }
+
   public VerifyResult errors(List<ServiceError> errors) {
     this.errors = errors;
     return this;
@@ -183,12 +199,13 @@ public class VerifyResult {
         Objects.equals(this.countryCode, verifyResult.countryCode) &&
         Objects.equals(this.productName, verifyResult.productName) &&
         Objects.equals(this.record, verifyResult.record) &&
+        Objects.equals(this.customerReferenceID, verifyResult.customerReferenceID) &&
         Objects.equals(this.errors, verifyResult.errors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(transactionID, uploadedDt, countryCode, productName, record, errors);
+    return Objects.hash(transactionID, uploadedDt, countryCode, productName, record, customerReferenceID, errors);
   }
 
 
@@ -202,6 +219,7 @@ public class VerifyResult {
     sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
     sb.append("    productName: ").append(toIndentedString(productName)).append("\n");
     sb.append("    record: ").append(toIndentedString(record)).append("\n");
+    sb.append("    customerReferenceID: ").append(toIndentedString(customerReferenceID)).append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("}");
     return sb.toString();
