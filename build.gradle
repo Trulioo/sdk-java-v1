@@ -100,4 +100,5 @@ dependencies {
     compile 'com.google.code.gson:gson:2.8.1'
     compile 'joda-time:joda-time:2.9.9'
     testCompile 'junit:junit:4.12'
+    testCompile group: 'com.tngtech.java', name: 'junit-dataprovider', version: '1.10.0'
 }

@@ -14,15 +14,11 @@
 package com.trulioo.normalizedapi.model;
 
 import java.util.Objects;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
+
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import com.trulioo.normalizedapi.model.DataFields;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,7 +26,7 @@ import java.util.List;
  * The verification call for the Normalized API is a POST method call
  */
 @ApiModel(description = "The verification call for the Normalized API is a POST method call")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-09-25T15:36:47.107-07:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-12-03T13:54:47.084-08:00")
 public class VerifyRequest {
   @SerializedName("AcceptTruliooTermsAndConditions")
   private Boolean acceptTruliooTermsAndConditions = null;
@@ -55,6 +51,9 @@ public class VerifyRequest {
 
   @SerializedName("CountryCode")
   private String countryCode = null;
+
+  @SerializedName("CustomerReferenceID")
+  private String customerReferenceID = null;
 
   @SerializedName("DataFields")
   private DataFields dataFields = null;
@@ -214,6 +213,24 @@ public class VerifyRequest {
     this.countryCode = countryCode;
   }
 
+  public VerifyRequest customerReferenceID(String customerReferenceID) {
+    this.customerReferenceID = customerReferenceID;
+    return this;
+  }
+
+   /**
+   * Customer Reference Id
+   * @return customerReferenceID
+  **/
+  @ApiModelProperty(value = "Customer Reference Id")
+  public String getCustomerReferenceID() {
+    return customerReferenceID;
+  }
+
+  public void setCustomerReferenceID(String customerReferenceID) {
+    this.customerReferenceID = customerReferenceID;
+  }
+
   public VerifyRequest dataFields(DataFields dataFields) {
     this.dataFields = dataFields;
     return this;
@@ -268,13 +285,14 @@ public class VerifyRequest {
         Objects.equals(this.configurationName, verifyRequest.configurationName) &&
         Objects.equals(this.consentForDataSources, verifyRequest.consentForDataSources) &&
         Objects.equals(this.countryCode, verifyRequest.countryCode) &&
+        Objects.equals(this.customerReferenceID, verifyRequest.customerReferenceID) &&
         Objects.equals(this.dataFields, verifyRequest.dataFields) &&
         Objects.equals(this.verboseMode, verifyRequest.verboseMode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(acceptTruliooTermsAndConditions, demo, callBackUrl, timeout, cleansedAddress, configurationName, consentForDataSources, countryCode, dataFields, verboseMode);
+    return Objects.hash(acceptTruliooTermsAndConditions, demo, callBackUrl, timeout, cleansedAddress, configurationName, consentForDataSources, countryCode, customerReferenceID, dataFields, verboseMode);
   }
 
 
@@ -291,6 +309,7 @@ public class VerifyRequest {
     sb.append("    configurationName: ").append(toIndentedString(configurationName)).append("\n");
     sb.append("    consentForDataSources: ").append(toIndentedString(consentForDataSources)).append("\n");
     sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
+    sb.append("    customerReferenceID: ").append(toIndentedString(customerReferenceID)).append("\n");
     sb.append("    dataFields: ").append(toIndentedString(dataFields)).append("\n");
     sb.append("    verboseMode: ").append(toIndentedString(verboseMode)).append("\n");
     sb.append("}");
