@@ -29,7 +29,7 @@ public class AppendedField {
   private String fieldName = null;
 
   @SerializedName("Data")
-  private String data = null;
+  private Object data = null;
 
   public AppendedField fieldName(String fieldName) {
     this.fieldName = fieldName;
@@ -49,7 +49,7 @@ public class AppendedField {
     this.fieldName = fieldName;
   }
 
-  public AppendedField data(String data) {
+  public AppendedField data(Object data) {
     this.data = data;
     return this;
   }
@@ -59,11 +59,11 @@ public class AppendedField {
    * @return data
   **/
   @ApiModelProperty(value = "")
-  public String getData() {
+  public Object getData() {
     return data;
   }
 
-  public void setData(String data) {
+  public void setData(Object data) {
     this.data = data;
   }
 
