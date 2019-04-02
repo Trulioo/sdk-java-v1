@@ -1,5 +1,9 @@
 # Trulioo SDK for Java Changelog
 
+## Version 1.0.2.1
+
+Changed type of Model/AppendedField's Data from string to Object in order to allow WatchListDetails, returned as Map, parsable.
+
 ## Version 1.0.2.0
 
 Updated writeTimeOut to 60 seconds based on PR#5
