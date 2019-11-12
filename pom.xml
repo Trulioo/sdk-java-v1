@@ -237,6 +237,11 @@
             <version>1.5.0</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+		  <groupId>org.threeten</groupId>
+		  <artifactId>threetenbp</artifactId>
+		  <version>1.4.0</version>
+	  	</dependency>
     </dependencies>
     <properties>
         <java.version>1.7</java.version>

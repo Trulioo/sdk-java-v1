@@ -18,8 +18,8 @@ If set, the transaction will run asynchronously and Trulioo will try to update t
 ### Example
 ```java
 // Import classes:
-//import ApiException;
-//import ConnectionApi;
+//import com.trulioo.normalizedapi.ApiException;
+//import com.trulioo.normalizedapi.api.ConnectionApi;
 
 
 ConnectionApi apiInstance = new ConnectionApi();
@@ -61,8 +61,8 @@ This method enables you to check if your system can connect to our system. You c
 ### Example
 ```java
 // Import classes:
-//import ApiException;
-//import ConnectionApi;
+//import com.trulioo.normalizedapi.ApiException;
+//import com.trulioo.normalizedapi.api.ConnectionApi;
 
 
 ConnectionApi apiInstance = new ConnectionApi();
@@ -104,11 +104,11 @@ This method enables you to check if your credentials are valid. You will need to
 ### Example
 ```java
 // Import classes:
-//import ApiClient;
-//import ApiException;
-//import Configuration;
+//import com.trulioo.normalizedapi.ApiClient;
+//import com.trulioo.normalizedapi.ApiException;
+//import com.trulioo.normalizedapi.Configuration;
 //import com.trulioo.normalizedapi.auth.*;
-//import ConnectionApi;
+//import com.trulioo.normalizedapi.api.ConnectionApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 

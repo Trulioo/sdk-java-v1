@@ -17,11 +17,11 @@ returns the a business search result.
 ### Example
 ```java
 // Import classes:
-//import ApiClient;
-//import ApiException;
-//import Configuration;
+//import com.trulioo.normalizedapi.ApiClient;
+//import com.trulioo.normalizedapi.ApiException;
+//import com.trulioo.normalizedapi.Configuration;
 //import com.trulioo.normalizedapi.auth.*;
-//import BusinessApi;
+//import com.trulioo.normalizedapi.api.BusinessApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -69,11 +69,11 @@ Calling this method will perform a business search.
 ### Example
 ```java
 // Import classes:
-//import ApiClient;
-//import ApiException;
-//import Configuration;
+//import com.trulioo.normalizedapi.ApiClient;
+//import com.trulioo.normalizedapi.ApiException;
+//import com.trulioo.normalizedapi.Configuration;
 //import com.trulioo.normalizedapi.auth.*;
-//import BusinessApi;
+//import com.trulioo.normalizedapi.api.BusinessApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 

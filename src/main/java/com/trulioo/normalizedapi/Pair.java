@@ -13,7 +13,7 @@
 
 package com.trulioo.normalizedapi;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-12-03T13:54:47.084-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-28T15:09:55.671-07:00")
 public class Pair {
     private String name = "";
     private String value = "";

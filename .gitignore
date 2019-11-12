@@ -25,5 +25,5 @@ build
 !*.project
 
 .idea
-.m2
 normalizedapi.iml
+/bin/

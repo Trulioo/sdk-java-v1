@@ -65,7 +65,7 @@ public class BusinessApi {
      */
     public okhttp3.Call getBusinessSearchResultCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/business/v1/search/transactionrecord/{id}"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -73,9 +73,8 @@ public class BusinessApi {
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
+        
         final String[] localVarAccepts = {
             "application/json", "text/json"
         };
@@ -103,7 +102,7 @@ public class BusinessApi {
         String[] localVarAuthNames = new String[] { "basic" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getBusinessSearchResultValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -112,14 +111,8 @@ public class BusinessApi {
             throw new ApiException("Missing the required parameter 'id' when calling getBusinessSearchResult(Async)");
         }
         
-        
         okhttp3.Call call = getBusinessSearchResultCall(id, progressListener, progressRequestListener);
         return call;
-
-        
-        
-        
-        
     }
 
     /**
@@ -191,7 +184,7 @@ public class BusinessApi {
      */
     public okhttp3.Call searchCall(BusinessSearchRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = request;
-        
+
         // create path and map variables
         String localVarPath = "/business/v1/search";
 
@@ -228,7 +221,7 @@ public class BusinessApi {
         String[] localVarAuthNames = new String[] { "basic" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private okhttp3.Call searchValidateBeforeCall(BusinessSearchRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -237,14 +230,8 @@ public class BusinessApi {
             throw new ApiException("Missing the required parameter 'request' when calling search(Async)");
         }
         
-        
         okhttp3.Call call = searchCall(request, progressListener, progressRequestListener);
         return call;
-
-        
-        
-        
-        
     }
 
     /**
