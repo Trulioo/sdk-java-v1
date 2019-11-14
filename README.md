@@ -1,6 +1,6 @@
 # Trulioo SDK for Java #
 
-## Version 1.0.2.2
+## Version 1.0.3
 
 ### Introduction
 
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.trulioo</groupId>
   <artifactId>normalizedapi</artifactId>
-  <version>v1.0.2.2</version>
+  <version>1.0.3</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -61,7 +61,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.trulioo:normalizedapi:v1.0.2.2"
+compile "com.trulioo:normalizedapi:1.0.3"
 ```
 
 ### Others
@@ -74,7 +74,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/normalizedapi-v1.0.2.2.jar`
+* `target/normalizedapi-1.0.3.jar`
 * `target/lib/*.jar`
 
 ## Getting Started

@@ -5,7 +5,7 @@
     <artifactId>normalizedapi</artifactId>
     <packaging>jar</packaging>
     <name>Trulioo Normalized API</name>
-    <version>1.0.2.1</version>
+    <version>1.0.3</version>
     <url>https://api.globaldatacompany.com/docs</url>
     <description>Trulioo provides a collection of API methods to help you build business processes powered by the
         GlobalGateway Normalized API.
