@@ -25,30 +25,30 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * ISO 3166-2 break down of the country
+ * Consents required from datasource
  */
-@ApiModel(description = "ISO 3166-2 break down of the country")
+@ApiModel(description = "Consents required from datasource")
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-28T15:09:55.671-07:00")
-public class CountrySubdivision {
+public class Consent {
   @SerializedName("Name")
   private String name = null;
 
-  @SerializedName("Code")
-  private String code = null;
+  @SerializedName("Text")
+  private String text = null;
 
-  @SerializedName("ParentCode")
-  private String parentCode = null;
+  @SerializedName("Url")
+  private String url = null;
 
-  public CountrySubdivision name(String name) {
+  public Consent name(String name) {
     this.name = name;
     return this;
   }
 
    /**
-   * Name of the area, in english or one of the languages of the country
+   * Name of the datasource requiring consent
    * @return name
   **/
-  @ApiModelProperty(value = "Name of the area, in english or one of the languages of the country")
+  @ApiModelProperty(value = "Name of the datasource requiring consent")
   public String getName() {
     return name;
   }
@@ -57,40 +57,40 @@ public class CountrySubdivision {
     this.name = name;
   }
 
-  public CountrySubdivision code(String code) {
-    this.code = code;
+  public Consent text(String text) {
+    this.text = text;
     return this;
   }
 
    /**
-   * Code for the area
-   * @return code
+   * Text outlining how the user is consenting for their data to be used
+   * @return text
   **/
-  @ApiModelProperty(value = "Code for the area")
-  public String getCode() {
-    return code;
+  @ApiModelProperty(value = "Text outlining how the user is consenting for their data to be used")
+  public String getText() {
+    return text;
   }
 
-  public void setCode(String code) {
-    this.code = code;
+  public void setText(String text) {
+    this.text = text;
   }
 
-  public CountrySubdivision parentCode(String parentCode) {
-    this.parentCode = parentCode;
+  public Consent url(String url) {
+    this.url = url;
     return this;
   }
 
    /**
-   * Code of the parent entity
-   * @return parentCode
+   * URL where the user can find more information about how the datasource will use their data
+   * @return url
   **/
-  @ApiModelProperty(value = "Code of the parent entity")
-  public String getParentCode() {
-    return parentCode;
+  @ApiModelProperty(value = "URL where the user can find more information about how the datasource will use their data")
+  public String getUrl() {
+    return url;
   }
 
-  public void setParentCode(String parentCode) {
-    this.parentCode = parentCode;
+  public void setUrl(String url) {
+    this.url = url;
   }
 
 
@@ -102,26 +102,26 @@ public class CountrySubdivision {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CountrySubdivision countrySubdivision = (CountrySubdivision) o;
-    return Objects.equals(this.name, countrySubdivision.name) &&
-        Objects.equals(this.code, countrySubdivision.code) &&
-        Objects.equals(this.parentCode, countrySubdivision.parentCode);
+    Consent consent = (Consent) o;
+    return Objects.equals(this.name, consent.name) &&
+        Objects.equals(this.text, consent.text) &&
+        Objects.equals(this.url, consent.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, code, parentCode);
+    return Objects.hash(name, text, url);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CountrySubdivision {\n");
+    sb.append("class Consent {\n");
     
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    parentCode: ").append(toIndentedString(parentCode)).append("\n");
+    sb.append("    text: ").append(toIndentedString(text)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();
   }

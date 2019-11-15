@@ -21,7 +21,7 @@ import com.trulioo.normalizedapi.Configuration;
 import com.trulioo.normalizedapi.Pair;
 import com.trulioo.normalizedapi.ProgressRequestBody;
 import com.trulioo.normalizedapi.ProgressResponseBody;
-
+import com.trulioo.normalizedapi.auth.ApiKeyAuth;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
@@ -114,10 +114,6 @@ public class ConnectionApi {
         okhttp3.Call call = connectionAsyncCallbackUrlCall(transactionStatus, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -236,14 +232,9 @@ public class ConnectionApi {
             throw new ApiException("Missing the required parameter 'name' when calling sayHello(Async)");
         }
         
-        
         okhttp3.Call call = sayHelloCall(name, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -348,20 +339,22 @@ public class ConnectionApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] { "basic" };
+        String[] localVarAuthNames;        
+        if (apiClient.getAuthentication("apiKey") != null && ((ApiKeyAuth)apiClient.getAuthentication("apiKey")).getApiKey() != null)
+        {
+            localVarAuthNames = new String[] { "apiKey" };
+        }
+        else{
+            localVarAuthNames = new String[] { "basic" };
+        }
+
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
     
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call testAuthenticationValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        
+    private okhttp3.Call testAuthenticationValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {      
         okhttp3.Call call = testAuthenticationCall(progressListener, progressRequestListener);
         return call;
-
-        
-        
-        
         
     }
 

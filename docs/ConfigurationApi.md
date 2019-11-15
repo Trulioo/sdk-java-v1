@@ -8,8 +8,10 @@ Method | HTTP request | Description
 [**getCountryCodes**](ConfigurationApi.md#getCountryCodes) | **GET** /configuration/v1/countrycodes/{configurationName} | This method retrieves all the countries that are available to perform a verification.
 [**getCountrySubdivisions**](ConfigurationApi.md#getCountrySubdivisions) | **GET** /configuration/v1/countrysubdivisions/{countryCode} | Gets the provinces states or other subdivisions for a country, mostly matches ISO 3166-2
 [**getDatasources**](ConfigurationApi.md#getDatasources) | **GET** /configuration/v1/datasources/{configurationName}/{countryCode} | Gets datasource groups configured for your product and country.
+[**getDetailedConsents**](ConfigurationApi.md#getDetailedConsents) | **GET** /configuration/v1/detailedConsents/{configurationName}/{countryCode} | This method retrieves details about consents required for data sources currently configured in your account configuration.   The response for this method contains a collection of objects.  Each object contains the Name of the data source, Text outlining what the user is consenting to, and optionally a Url where the user can find more information about how their data will be used.    Failure to provide a Name from the object collection will lead to a &lt;a class&#x3D;\&quot;link-to-api\&quot; href&#x3D;\&quot;#errors\&quot;&gt;1005&lt;/a&gt; service error.
 [**getDocumentTypes**](ConfigurationApi.md#getDocumentTypes) | **GET** /configuration/v1/documentTypes/{countryCode} | Gets the document types available for a country.
 [**getFields**](ConfigurationApi.md#getFields) | **GET** /configuration/v1/fields/{configurationName}/{countryCode} | Generates json schema for the API, the schema is dynamic based on the country and configuration you are using.  http://json-schema.org/documentation.html
+[**getRecommendedFields**](ConfigurationApi.md#getRecommendedFields) | **GET** /configuration/v1/recommendedfields/{configurationName}/{countryCode} | Generates json schema for the API, the schema is dynamic based on the recommendedFields country and account you are using.  http://json-schema.org/documentation.html
 [**getTestEntities**](ConfigurationApi.md#getTestEntities) | **GET** /configuration/v1/testentities/{configurationName}/{countryCode} | Gets the test entities configured for your product and country.
 
 
@@ -22,11 +24,11 @@ This method retrieves the consents required for data sources currently configure
 ### Example
 ```java
 // Import classes:
-//import ApiClient;
-//import ApiException;
-//import Configuration;
+//import com.trulioo.normalizedapi.ApiClient;
+//import com.trulioo.normalizedapi.ApiException;
+//import com.trulioo.normalizedapi.Configuration;
 //import com.trulioo.normalizedapi.auth.*;
-//import ConfigurationApi;
+//import com.trulioo.normalizedapi.api.ConfigurationApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -76,11 +78,11 @@ This method retrieves all the countries that are available to perform a verifica
 ### Example
 ```java
 // Import classes:
-//import ApiClient;
-//import ApiException;
-//import Configuration;
+//import com.trulioo.normalizedapi.ApiClient;
+//import com.trulioo.normalizedapi.ApiException;
+//import com.trulioo.normalizedapi.Configuration;
 //import com.trulioo.normalizedapi.auth.*;
-//import ConfigurationApi;
+//import com.trulioo.normalizedapi.api.ConfigurationApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -128,11 +130,11 @@ Gets the provinces states or other subdivisions for a country, mostly matches IS
 ### Example
 ```java
 // Import classes:
-//import ApiClient;
-//import ApiException;
-//import Configuration;
+//import com.trulioo.normalizedapi.ApiClient;
+//import com.trulioo.normalizedapi.ApiException;
+//import com.trulioo.normalizedapi.Configuration;
 //import com.trulioo.normalizedapi.auth.*;
-//import ConfigurationApi;
+//import com.trulioo.normalizedapi.api.ConfigurationApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -180,11 +182,11 @@ Gets datasource groups configured for your product and country.
 ### Example
 ```java
 // Import classes:
-//import ApiClient;
-//import ApiException;
-//import Configuration;
+//import com.trulioo.normalizedapi.ApiClient;
+//import com.trulioo.normalizedapi.ApiException;
+//import com.trulioo.normalizedapi.Configuration;
 //import com.trulioo.normalizedapi.auth.*;
-//import ConfigurationApi;
+//import com.trulioo.normalizedapi.api.ConfigurationApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -225,6 +227,60 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json, text/json
 
+<a name="getDetailedConsents"></a>
+# **getDetailedConsents**
+> List&lt;Consent&gt; getDetailedConsents(countryCode, configurationName)
+
+This method retrieves details about consents required for data sources currently configured in your account configuration.   The response for this method contains a collection of objects.  Each object contains the Name of the data source, Text outlining what the user is consenting to, and optionally a Url where the user can find more information about how their data will be used.    Failure to provide a Name from the object collection will lead to a &lt;a class&#x3D;\&quot;link-to-api\&quot; href&#x3D;\&quot;#errors\&quot;&gt;1005&lt;/a&gt; service error.
+
+### Example
+```java
+// Import classes:
+//import com.trulioo.normalizedapi.ApiClient;
+//import com.trulioo.normalizedapi.ApiException;
+//import com.trulioo.normalizedapi.Configuration;
+//import com.trulioo.normalizedapi.auth.*;
+//import com.trulioo.normalizedapi.api.ConfigurationApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+ConfigurationApi apiInstance = new ConfigurationApi();
+String countryCode = "countryCode_example"; // String | Call CountryCodes to get the countries available to you.
+String configurationName = "configurationName_example"; // String | Identity Verification
+try {
+    List<Consent> result = apiInstance.getDetailedConsents(countryCode, configurationName);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ConfigurationApi#getDetailedConsents");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **countryCode** | **String**| Call CountryCodes to get the countries available to you. |
+ **configurationName** | **String**| Identity Verification |
+
+### Return type
+
+[**List&lt;Consent&gt;**](Consent.md)
+
+### Authorization
+
+[basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, text/json
+
 <a name="getDocumentTypes"></a>
 # **getDocumentTypes**
 > Map&lt;String, List&lt;String&gt;&gt; getDocumentTypes(countryCode)
@@ -234,11 +290,11 @@ Gets the document types available for a country.
 ### Example
 ```java
 // Import classes:
-//import ApiClient;
-//import ApiException;
-//import Configuration;
+//import com.trulioo.normalizedapi.ApiClient;
+//import com.trulioo.normalizedapi.ApiException;
+//import com.trulioo.normalizedapi.Configuration;
 //import com.trulioo.normalizedapi.auth.*;
-//import ConfigurationApi;
+//import com.trulioo.normalizedapi.api.ConfigurationApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -286,11 +342,11 @@ Generates json schema for the API, the schema is dynamic based on the country an
 ### Example
 ```java
 // Import classes:
-//import ApiClient;
-//import ApiException;
-//import Configuration;
+//import com.trulioo.normalizedapi.ApiClient;
+//import com.trulioo.normalizedapi.ApiException;
+//import com.trulioo.normalizedapi.Configuration;
 //import com.trulioo.normalizedapi.auth.*;
-//import ConfigurationApi;
+//import com.trulioo.normalizedapi.api.ConfigurationApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 
@@ -331,6 +387,60 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json, text/json
 
+<a name="getRecommendedFields"></a>
+# **getRecommendedFields**
+> Object getRecommendedFields(countryCode, configurationName)
+
+Generates json schema for the API, the schema is dynamic based on the recommendedFields country and account you are using.  http://json-schema.org/documentation.html
+
+### Example
+```java
+// Import classes:
+//import com.trulioo.normalizedapi.ApiClient;
+//import com.trulioo.normalizedapi.ApiException;
+//import com.trulioo.normalizedapi.Configuration;
+//import com.trulioo.normalizedapi.auth.*;
+//import com.trulioo.normalizedapi.api.ConfigurationApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+
+ConfigurationApi apiInstance = new ConfigurationApi();
+String countryCode = "countryCode_example"; // String | Call CountryCodes to get the countries available to you.
+String configurationName = "configurationName_example"; // String | Identity Verification
+try {
+    Object result = apiInstance.getRecommendedFields(countryCode, configurationName);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ConfigurationApi#getRecommendedFields");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **countryCode** | **String**| Call CountryCodes to get the countries available to you. |
+ **configurationName** | **String**| Identity Verification |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[basic](../README.md#basic)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json, text/json
+
 <a name="getTestEntities"></a>
 # **getTestEntities**
 > List&lt;DataFields&gt; getTestEntities(configurationName, countryCode)
@@ -340,11 +450,11 @@ Gets the test entities configured for your product and country.
 ### Example
 ```java
 // Import classes:
-//import ApiClient;
-//import ApiException;
-//import Configuration;
+//import com.trulioo.normalizedapi.ApiClient;
+//import com.trulioo.normalizedapi.ApiException;
+//import com.trulioo.normalizedapi.Configuration;
 //import com.trulioo.normalizedapi.auth.*;
-//import ConfigurationApi;
+//import com.trulioo.normalizedapi.api.ConfigurationApi;
 
 ApiClient defaultClient = Configuration.getDefaultApiClient();
 

@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
-
 import com.trulioo.normalizedapi.model.TransactionStatus;
 import com.trulioo.normalizedapi.model.VerifyRequest;
 import com.trulioo.normalizedapi.model.VerifyResult;
@@ -59,6 +58,137 @@ public class VerificationsApi {
 
 
     /**
+     * Build call for documentDownload
+     * @param transactionRecordId id of the transactionrecord, this will be a GUID (required)
+     * @param fieldName document field name (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call documentDownloadCall(String transactionRecordId, String fieldName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/verifications/v1/documentdownload/{transactionRecordId}/{fieldName}"
+            .replaceAll("\\{" + "transactionRecordId" + "\\}", apiClient.escapeString(transactionRecordId.toString()))
+            .replaceAll("\\{" + "fieldName" + "\\}", apiClient.escapeString(fieldName.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new okhttp3.Interceptor() {
+                @Override
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "basic" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call documentDownloadValidateBeforeCall(String transactionRecordId, String fieldName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'transactionRecordId' is set
+        if (transactionRecordId == null) {
+            throw new ApiException("Missing the required parameter 'transactionRecordId' when calling documentDownload(Async)");
+        }
+        
+        // verify the required parameter 'fieldName' is set
+        if (fieldName == null) {
+            throw new ApiException("Missing the required parameter 'fieldName' when calling documentDownload(Async)");
+        }
+        
+        okhttp3.Call call = documentDownloadCall(transactionRecordId, fieldName, progressListener, progressRequestListener);
+        return call;
+    }
+
+    /**
+     * Download Document
+     * 
+     * @param transactionRecordId id of the transactionrecord, this will be a GUID (required)
+     * @param fieldName document field name (required)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Object documentDownload(String transactionRecordId, String fieldName) throws ApiException {
+        ApiResponse<Object> resp = documentDownloadWithHttpInfo(transactionRecordId, fieldName);
+        return resp.getData();
+    }
+
+    /**
+     * Download Document
+     * 
+     * @param transactionRecordId id of the transactionrecord, this will be a GUID (required)
+     * @param fieldName document field name (required)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Object> documentDownloadWithHttpInfo(String transactionRecordId, String fieldName) throws ApiException {
+        okhttp3.Call call = documentDownloadValidateBeforeCall(transactionRecordId, fieldName, null, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Download Document (asynchronously)
+     * 
+     * @param transactionRecordId id of the transactionrecord, this will be a GUID (required)
+     * @param fieldName document field name (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call documentDownloadAsync(String transactionRecordId, String fieldName, final ApiCallback<Object> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        okhttp3.Call call = documentDownloadValidateBeforeCall(transactionRecordId, fieldName, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for getTransactionRecord
      * @param id id of the transactionrecord, this will be a GUID (required)
      * @param progressListener Progress listener
@@ -68,7 +198,7 @@ public class VerificationsApi {
      */
     public okhttp3.Call getTransactionRecordCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/verifications/v1/transactionrecord/{id}"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -106,7 +236,7 @@ public class VerificationsApi {
         String[] localVarAuthNames = new String[] { "basic" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getTransactionRecordValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -115,14 +245,8 @@ public class VerificationsApi {
             throw new ApiException("Missing the required parameter 'id' when calling getTransactionRecord(Async)");
         }
         
-        
         okhttp3.Call call = getTransactionRecordCall(id, progressListener, progressRequestListener);
         return call;
-
-        
-        
-        
-        
     }
 
     /**
@@ -194,7 +318,7 @@ public class VerificationsApi {
      */
     public okhttp3.Call getTransactionRecordAddressCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/verifications/v1/transactionrecord/{id}/withaddress"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -232,7 +356,7 @@ public class VerificationsApi {
         String[] localVarAuthNames = new String[] { "basic" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getTransactionRecordAddressValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -241,14 +365,8 @@ public class VerificationsApi {
             throw new ApiException("Missing the required parameter 'id' when calling getTransactionRecordAddress(Async)");
         }
         
-        
         okhttp3.Call call = getTransactionRecordAddressCall(id, progressListener, progressRequestListener);
         return call;
-
-        
-        
-        
-        
     }
 
     /**
@@ -320,7 +438,7 @@ public class VerificationsApi {
      */
     public okhttp3.Call getTransactionRecordVerboseCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/verifications/v1/transactionrecord/{id}/verbose"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -358,7 +476,7 @@ public class VerificationsApi {
         String[] localVarAuthNames = new String[] { "basic" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getTransactionRecordVerboseValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -367,14 +485,8 @@ public class VerificationsApi {
             throw new ApiException("Missing the required parameter 'id' when calling getTransactionRecordVerbose(Async)");
         }
         
-        
         okhttp3.Call call = getTransactionRecordVerboseCall(id, progressListener, progressRequestListener);
         return call;
-
-        
-        
-        
-        
     }
 
     /**
@@ -446,7 +558,7 @@ public class VerificationsApi {
      */
     public okhttp3.Call getTransactionStatusCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/verifications/v1/transaction/{id}/status"
             .replaceAll("\\{" + "id" + "\\}", apiClient.escapeString(id.toString()));
@@ -484,7 +596,7 @@ public class VerificationsApi {
         String[] localVarAuthNames = new String[] { "basic" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getTransactionStatusValidateBeforeCall(String id, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -492,15 +604,9 @@ public class VerificationsApi {
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling getTransactionStatus(Async)");
         }
-        
-        
+
         okhttp3.Call call = getTransactionStatusCall(id, progressListener, progressRequestListener);
         return call;
-
-        
-        
-        
-        
     }
 
     /**
@@ -572,7 +678,7 @@ public class VerificationsApi {
      */
     public okhttp3.Call verifyCall(VerifyRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = request;
-        
+
         // create path and map variables
         String localVarPath = "/verifications/v1/verify";
 
@@ -595,7 +701,7 @@ public class VerificationsApi {
         localVarHeaderParams.put("Content-Type", localVarContentType);
 
         if(progressListener != null) {
-            apiClient.getHttpClient().newBuilder().addNetworkInterceptor(new okhttp3.Interceptor() {
+        	apiClient.getHttpClient().newBuilder().addNetworkInterceptor(new okhttp3.Interceptor() {
                 @Override
                 public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
                     okhttp3.Response originalResponse = chain.proceed(chain.request());
@@ -609,7 +715,7 @@ public class VerificationsApi {
         String[] localVarAuthNames = new String[] { "basic" };
         return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private okhttp3.Call verifyValidateBeforeCall(VerifyRequest request, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -617,15 +723,9 @@ public class VerificationsApi {
         if (request == null) {
             throw new ApiException("Missing the required parameter 'request' when calling verify(Async)");
         }
-        
-        
+
         okhttp3.Call call = verifyCall(request, progressListener, progressRequestListener);
         return call;
-
-        
-        
-        
-        
     }
 
     /**

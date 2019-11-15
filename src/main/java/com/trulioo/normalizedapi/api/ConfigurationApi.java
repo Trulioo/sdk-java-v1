@@ -13,7 +13,6 @@
 
 package com.trulioo.normalizedapi.api;
 
-import com.trulioo.normalizedapi.model.DataFields;
 import com.trulioo.normalizedapi.ApiCallback;
 import com.trulioo.normalizedapi.ApiClient;
 import com.trulioo.normalizedapi.ApiException;
@@ -28,7 +27,9 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import com.trulioo.normalizedapi.model.Consent;
 import com.trulioo.normalizedapi.model.CountrySubdivision;
+import com.trulioo.normalizedapi.model.DataFields;
 import com.trulioo.normalizedapi.model.NormalizedDatasourceGroupCountry;
 
 import java.lang.reflect.Type;
@@ -67,7 +68,7 @@ public class ConfigurationApi {
      */
     public okhttp3.Call getConsentsCall(String countryCode, String configurationName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/configuration/v1/consents/{configurationName}/{countryCode}"
             .replaceAll("\\{" + "countryCode" + "\\}", apiClient.escapeString(countryCode.toString()))
@@ -106,7 +107,7 @@ public class ConfigurationApi {
         String[] localVarAuthNames = new String[] { "basic" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getConsentsValidateBeforeCall(String countryCode, String configurationName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -120,14 +121,9 @@ public class ConfigurationApi {
             throw new ApiException("Missing the required parameter 'configurationName' when calling getConsents(Async)");
         }
         
-        
         okhttp3.Call call = getConsentsCall(countryCode, configurationName, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -202,7 +198,7 @@ public class ConfigurationApi {
      */
     public okhttp3.Call getCountryCodesCall(String configurationName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/configuration/v1/countrycodes/{configurationName}"
             .replaceAll("\\{" + "configurationName" + "\\}", apiClient.escapeString(configurationName.toString()));
@@ -240,7 +236,7 @@ public class ConfigurationApi {
         String[] localVarAuthNames = new String[] { "basic" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getCountryCodesValidateBeforeCall(String configurationName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -249,14 +245,9 @@ public class ConfigurationApi {
             throw new ApiException("Missing the required parameter 'configurationName' when calling getCountryCodes(Async)");
         }
         
-        
         okhttp3.Call call = getCountryCodesCall(configurationName, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -328,7 +319,7 @@ public class ConfigurationApi {
      */
     public okhttp3.Call getCountrySubdivisionsCall(String countryCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/configuration/v1/countrysubdivisions/{countryCode}"
             .replaceAll("\\{" + "countryCode" + "\\}", apiClient.escapeString(countryCode.toString()));
@@ -366,7 +357,7 @@ public class ConfigurationApi {
         String[] localVarAuthNames = new String[] { "basic" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getCountrySubdivisionsValidateBeforeCall(String countryCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -375,14 +366,9 @@ public class ConfigurationApi {
             throw new ApiException("Missing the required parameter 'countryCode' when calling getCountrySubdivisions(Async)");
         }
         
-        
         okhttp3.Call call = getCountrySubdivisionsCall(countryCode, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -455,7 +441,7 @@ public class ConfigurationApi {
      */
     public okhttp3.Call getDatasourcesCall(String configurationName, String countryCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/configuration/v1/datasources/{configurationName}/{countryCode}"
             .replaceAll("\\{" + "configurationName" + "\\}", apiClient.escapeString(configurationName.toString()))
@@ -494,7 +480,7 @@ public class ConfigurationApi {
         String[] localVarAuthNames = new String[] { "basic" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getDatasourcesValidateBeforeCall(String configurationName, String countryCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -508,14 +494,9 @@ public class ConfigurationApi {
             throw new ApiException("Missing the required parameter 'countryCode' when calling getDatasources(Async)");
         }
         
-        
         okhttp3.Call call = getDatasourcesCall(configurationName, countryCode, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -581,6 +562,138 @@ public class ConfigurationApi {
         return call;
     }
     /**
+     * Build call for getDetailedConsents
+     * @param countryCode Call CountryCodes to get the countries available to you. (required)
+     * @param configurationName Identity Verification (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call getDetailedConsentsCall(String countryCode, String configurationName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/configuration/v1/detailedConsents/{configurationName}/{countryCode}"
+            .replaceAll("\\{" + "countryCode" + "\\}", apiClient.escapeString(countryCode.toString()))
+            .replaceAll("\\{" + "configurationName" + "\\}", apiClient.escapeString(configurationName.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().newBuilder().addNetworkInterceptor(new okhttp3.Interceptor() {
+                @Override
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "basic" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getDetailedConsentsValidateBeforeCall(String countryCode, String configurationName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'countryCode' is set
+        if (countryCode == null) {
+            throw new ApiException("Missing the required parameter 'countryCode' when calling getDetailedConsents(Async)");
+        }
+        
+        // verify the required parameter 'configurationName' is set
+        if (configurationName == null) {
+            throw new ApiException("Missing the required parameter 'configurationName' when calling getDetailedConsents(Async)");
+        }
+        
+        okhttp3.Call call = getDetailedConsentsCall(countryCode, configurationName, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * This method retrieves details about consents required for data sources currently configured in your account configuration.   The response for this method contains a collection of objects.  Each object contains the Name of the data source, Text outlining what the user is consenting to, and optionally a Url where the user can find more information about how their data will be used.    Failure to provide a Name from the object collection will lead to a &lt;a class&#x3D;\&quot;link-to-api\&quot; href&#x3D;\&quot;#errors\&quot;&gt;1005&lt;/a&gt; service error.
+     * 
+     * @param countryCode Call CountryCodes to get the countries available to you. (required)
+     * @param configurationName Identity Verification (required)
+     * @return List&lt;Consent&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<Consent> getDetailedConsents(String countryCode, String configurationName) throws ApiException {
+        ApiResponse<List<Consent>> resp = getDetailedConsentsWithHttpInfo(countryCode, configurationName);
+        return resp.getData();
+    }
+
+    /**
+     * This method retrieves details about consents required for data sources currently configured in your account configuration.   The response for this method contains a collection of objects.  Each object contains the Name of the data source, Text outlining what the user is consenting to, and optionally a Url where the user can find more information about how their data will be used.    Failure to provide a Name from the object collection will lead to a &lt;a class&#x3D;\&quot;link-to-api\&quot; href&#x3D;\&quot;#errors\&quot;&gt;1005&lt;/a&gt; service error.
+     * 
+     * @param countryCode Call CountryCodes to get the countries available to you. (required)
+     * @param configurationName Identity Verification (required)
+     * @return ApiResponse&lt;List&lt;Consent&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<Consent>> getDetailedConsentsWithHttpInfo(String countryCode, String configurationName) throws ApiException {
+        okhttp3.Call call = getDetailedConsentsValidateBeforeCall(countryCode, configurationName, null, null);
+        Type localVarReturnType = new TypeToken<List<Consent>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * This method retrieves details about consents required for data sources currently configured in your account configuration.   The response for this method contains a collection of objects.  Each object contains the Name of the data source, Text outlining what the user is consenting to, and optionally a Url where the user can find more information about how their data will be used.    Failure to provide a Name from the object collection will lead to a &lt;a class&#x3D;\&quot;link-to-api\&quot; href&#x3D;\&quot;#errors\&quot;&gt;1005&lt;/a&gt; service error. (asynchronously)
+     * 
+     * @param countryCode Call CountryCodes to get the countries available to you. (required)
+     * @param configurationName Identity Verification (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call getDetailedConsentsAsync(String countryCode, String configurationName, final ApiCallback<List<Consent>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        okhttp3.Call call = getDetailedConsentsValidateBeforeCall(countryCode, configurationName, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<Consent>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for getDocumentTypes
      * @param countryCode Call CountryCodes to get the countries available to you. (required)
      * @param progressListener Progress listener
@@ -590,7 +703,7 @@ public class ConfigurationApi {
      */
     public okhttp3.Call getDocumentTypesCall(String countryCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/configuration/v1/documentTypes/{countryCode}"
             .replaceAll("\\{" + "countryCode" + "\\}", apiClient.escapeString(countryCode.toString()));
@@ -628,7 +741,7 @@ public class ConfigurationApi {
         String[] localVarAuthNames = new String[] { "basic" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getDocumentTypesValidateBeforeCall(String countryCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -636,15 +749,10 @@ public class ConfigurationApi {
         if (countryCode == null) {
             throw new ApiException("Missing the required parameter 'countryCode' when calling getDocumentTypes(Async)");
         }
-        
-        
+
         okhttp3.Call call = getDocumentTypesCall(countryCode, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -717,7 +825,7 @@ public class ConfigurationApi {
      */
     public okhttp3.Call getFieldsCall(String countryCode, String configurationName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/configuration/v1/fields/{configurationName}/{countryCode}"
             .replaceAll("\\{" + "countryCode" + "\\}", apiClient.escapeString(countryCode.toString()))
@@ -756,7 +864,7 @@ public class ConfigurationApi {
         String[] localVarAuthNames = new String[] { "basic" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getFieldsValidateBeforeCall(String countryCode, String configurationName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -770,14 +878,9 @@ public class ConfigurationApi {
             throw new ApiException("Missing the required parameter 'configurationName' when calling getFields(Async)");
         }
         
-        
         okhttp3.Call call = getFieldsCall(countryCode, configurationName, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -843,6 +946,137 @@ public class ConfigurationApi {
         return call;
     }
     /**
+     * Build call for getRecommendedFields
+     * @param countryCode Call CountryCodes to get the countries available to you. (required)
+     * @param configurationName Identity Verification (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public okhttp3.Call getRecommendedFieldsCall(String countryCode, String configurationName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/configuration/v1/recommendedfields/{configurationName}/{countryCode}"
+            .replaceAll("\\{" + "countryCode" + "\\}", apiClient.escapeString(countryCode.toString()))
+            .replaceAll("\\{" + "configurationName" + "\\}", apiClient.escapeString(configurationName.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json", "text/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().newBuilder().addNetworkInterceptor(new okhttp3.Interceptor() {
+                @Override
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "basic" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getRecommendedFieldsValidateBeforeCall(String countryCode, String configurationName, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'countryCode' is set
+        if (countryCode == null) {
+            throw new ApiException("Missing the required parameter 'countryCode' when calling getRecommendedFields(Async)");
+        }
+        
+        // verify the required parameter 'configurationName' is set
+        if (configurationName == null) {
+            throw new ApiException("Missing the required parameter 'configurationName' when calling getRecommendedFields(Async)");
+        }
+        
+        okhttp3.Call call = getRecommendedFieldsCall(countryCode, configurationName, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Generates json schema for the API, the schema is dynamic based on the recommendedFields country and account you are using.  http://json-schema.org/documentation.html
+     * 
+     * @param countryCode Call CountryCodes to get the countries available to you. (required)
+     * @param configurationName Identity Verification (required)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public Object getRecommendedFields(String countryCode, String configurationName) throws ApiException {
+        ApiResponse<Object> resp = getRecommendedFieldsWithHttpInfo(countryCode, configurationName);
+        return resp.getData();
+    }
+
+    /**
+     * Generates json schema for the API, the schema is dynamic based on the recommendedFields country and account you are using.  http://json-schema.org/documentation.html
+     * 
+     * @param countryCode Call CountryCodes to get the countries available to you. (required)
+     * @param configurationName Identity Verification (required)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<Object> getRecommendedFieldsWithHttpInfo(String countryCode, String configurationName) throws ApiException {
+        okhttp3.Call call = getRecommendedFieldsValidateBeforeCall(countryCode, configurationName, null, null);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Generates json schema for the API, the schema is dynamic based on the recommendedFields country and account you are using.  http://json-schema.org/documentation.html (asynchronously)
+     * 
+     * @param countryCode Call CountryCodes to get the countries available to you. (required)
+     * @param configurationName Identity Verification (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call getRecommendedFieldsAsync(String countryCode, String configurationName, final ApiCallback<Object> callback) throws ApiException {
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        okhttp3.Call call = getRecommendedFieldsValidateBeforeCall(countryCode, configurationName, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
      * Build call for getTestEntities
      * @param configurationName Identity Verification (required)
      * @param countryCode Call CountryCodes to get the countries available to you. (required)
@@ -892,7 +1126,7 @@ public class ConfigurationApi {
         String[] localVarAuthNames = new String[] { "basic" };
         return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getTestEntitiesValidateBeforeCall(String configurationName, String countryCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -906,14 +1140,9 @@ public class ConfigurationApi {
             throw new ApiException("Missing the required parameter 'countryCode' when calling getTestEntities(Async)");
         }
         
-        
         okhttp3.Call call = getTestEntitiesCall(configurationName, countryCode, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**

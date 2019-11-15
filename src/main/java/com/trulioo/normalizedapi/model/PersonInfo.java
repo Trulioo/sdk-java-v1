@@ -14,16 +14,22 @@
 package com.trulioo.normalizedapi.model;
 
 import java.util.Objects;
-
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import com.trulioo.normalizedapi.model.PersonInfoAdditionalFields;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * Personal Information
  */
 @ApiModel(description = "Personal Information")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-12-03T13:54:47.084-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-28T15:09:55.671-07:00")
 public class PersonInfo {
   @SerializedName("FirstGivenName")
   private String firstGivenName = null;
@@ -154,10 +160,10 @@ public class PersonInfo {
   }
 
    /**
-   * Day of birth date (i.e. 23 for a date of birth of 23/11/1975)
+   * Day of birth date (e.g. 23 for a date of birth of 23/11/1975)
    * @return dayOfBirth
   **/
-  @ApiModelProperty(value = "Day of birth date (i.e. 23 for a date of birth of 23/11/1975)")
+  @ApiModelProperty(value = "Day of birth date (e.g. 23 for a date of birth of 23/11/1975)")
   public Integer getDayOfBirth() {
     return dayOfBirth;
   }
@@ -172,10 +178,10 @@ public class PersonInfo {
   }
 
    /**
-   * Month of birth date (i.e. 11 for a date of birth of 23/11/1975)
+   * Month of birth date (e.g. 11 for a date of birth of 23/11/1975)
    * @return monthOfBirth
   **/
-  @ApiModelProperty(value = "Month of birth date (i.e. 11 for a date of birth of 23/11/1975)")
+  @ApiModelProperty(value = "Month of birth date (e.g. 11 for a date of birth of 23/11/1975)")
   public Integer getMonthOfBirth() {
     return monthOfBirth;
   }
@@ -190,10 +196,10 @@ public class PersonInfo {
   }
 
    /**
-   * Year of birth date (i.e. 1975 for a date of birth of 23/11/1975)
+   * Year of birth date (e.g. 1975 for a date of birth of 23/11/1975)
    * @return yearOfBirth
   **/
-  @ApiModelProperty(value = "Year of birth date (i.e. 1975 for a date of birth of 23/11/1975)")
+  @ApiModelProperty(value = "Year of birth date (e.g. 1975 for a date of birth of 23/11/1975)")
   public Integer getYearOfBirth() {
     return yearOfBirth;
   }
@@ -315,6 +321,6 @@ public class PersonInfo {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

@@ -14,16 +14,21 @@
 package com.trulioo.normalizedapi.model;
 
 import java.util.Objects;
-
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * 
  */
 @ApiModel(description = "")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-12-03T13:54:47.084-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-28T15:09:55.671-07:00")
 public class DriverLicence {
   @SerializedName("Number")
   private String number = null;
@@ -64,10 +69,10 @@ public class DriverLicence {
   }
 
    /**
-   * State of issue for driver&#39;s Licence
+   * State of issue for Driver&#39;s Licence
    * @return state
   **/
-  @ApiModelProperty(value = "State of issue for driver's Licence")
+  @ApiModelProperty(value = "State of issue for Driver's Licence")
   public String getState() {
     return state;
   }
@@ -177,6 +182,6 @@ public class DriverLicence {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

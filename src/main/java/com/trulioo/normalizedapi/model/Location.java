@@ -14,16 +14,22 @@
 package com.trulioo.normalizedapi.model;
 
 import java.util.Objects;
-
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import com.trulioo.normalizedapi.model.LocationAdditionalFields;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
 /**
  * 
  */
 @ApiModel(description = "")
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-12-03T13:54:47.084-08:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2019-08-28T15:09:55.671-07:00")
 public class Location {
   @SerializedName("BuildingNumber")
   private String buildingNumber = null;
@@ -142,10 +148,10 @@ public class Location {
   }
 
    /**
-   * Street type of primary residence (Typically St, Rd etc)
+   * Street type of primary residence (e.g. St, Rd etc)
    * @return streetType
   **/
-  @ApiModelProperty(value = "Street type of primary residence (Typically St, Rd etc)")
+  @ApiModelProperty(value = "Street type of primary residence (e.g. St, Rd etc)")
   public String getStreetType() {
     return streetType;
   }
@@ -232,10 +238,10 @@ public class Location {
   }
 
    /**
-   * Country of physical address (ISO 3166-1 alpha-2 code)
+   * Country of physical address (ISO 3166-1 alpha-2)
    * @return country
   **/
-  @ApiModelProperty(value = "Country of physical address (ISO 3166-1 alpha-2 code)")
+  @ApiModelProperty(value = "Country of physical address (ISO 3166-1 alpha-2)")
   public String getCountry() {
     return country;
   }
@@ -361,6 +367,6 @@ public class Location {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 
