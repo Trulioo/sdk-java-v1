@@ -749,6 +749,15 @@ public class ApiClient {
       String jsonMime = "(?i)^(application/json|[^;/ \t]+/[^;/ \t]+[+]json)[ \t]*(;.*)?$";
       return mime != null && (mime.matches(jsonMime) || mime.equalsIgnoreCase("application/json-patch+json"));
     }
+    
+    /**
+     * Check if the given MIME is application/pdf
+     * @param mime MIME (Multipurpose Internet Mail Extensions)
+     * @return True if the given MIME is application/pdf
+     */
+    public boolean isPDF(String mime) {
+        return mime != null && (mime.matches("(?i)(^)application\\/pdf($)"));
+    }
 
     /**
      * Select the Accept header's value from the given accepts array:
@@ -822,6 +831,12 @@ public class ApiClient {
         if (response == null || returnType == null) {
             return null;
         }
+        
+        String contentType = response.headers().get("Content-Type");
+        if (contentType == null) {
+            // ensuring a default content type
+            contentType = "application/json";
+        }
 
         if ("byte[]".equals(returnType.toString())) {
             // Handle binary response (byte array).
@@ -830,7 +845,7 @@ public class ApiClient {
             } catch (IOException e) {
                 throw new ApiException(e);
             }
-        } else if (returnType.equals(File.class)) {
+        } else if (returnType.equals(File.class) || isPDF(contentType)) {
             // Handle file downloading.
             return (T) downloadFileFromResponse(response);
         }
@@ -849,11 +864,6 @@ public class ApiClient {
             return null;
         }
 
-        String contentType = response.headers().get("Content-Type");
-        if (contentType == null) {
-            // ensuring a default content type
-            contentType = "application/json";
-        }
         if (isJsonMime(contentType)) {
             return json.deserialize(respBody, returnType);
         } else if (returnType.equals(String.class)) {

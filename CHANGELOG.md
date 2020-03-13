@@ -1,5 +1,9 @@
 # Trulioo SDK for Java Changelog
 
+## Version 1.0.4
+
+Support application/pdf in documentDownload
+
 ## Version 1.0.3
 
 Changed type of Model/AppendedField's Data from string to Object in order to allow WatchListDetails, returned as Map, parsable.
