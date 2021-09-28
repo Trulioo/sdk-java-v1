@@ -51,6 +51,9 @@ public class Business {
   @SerializedName("ShareholderListDocument")
   private Boolean shareholderListDocument = null;
 
+  @SerializedName("EnhancedProfile")
+  private Boolean enhancedProfile = null;
+
   @SerializedName("FinancialInformationDocument")
   private Boolean financialInformationDocument = null;
 
@@ -202,6 +205,24 @@ public class Business {
 
   public void setFinancialInformationDocument(Boolean financialInformationDocument) {
     this.financialInformationDocument = financialInformationDocument;
+  }
+
+  public Business enhancedProfile(Boolean enhancedProfile) {
+    this.enhancedProfile = enhancedProfile;
+    return this;
+  }
+
+  /**
+   * Whether or not to call for Enhanced Profile Information
+   * @return enhancedProfile
+   */
+  @ApiModelProperty(value = "Whether or not to call for Enhanced Profile Information")
+  public Boolean getEnhancedProfile() {
+    return enhancedProfile;
+  }
+
+  public void setEnhancedProfile(Boolean enhancedProfile) {
+    this.enhancedProfile = enhancedProfile;
   }
 
   public Business dunsNumber(String dunsNumber) {
