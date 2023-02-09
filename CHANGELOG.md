@@ -1,5 +1,32 @@
 # Trulioo SDK for Java Changelog
 
+## Version 1.0.6
+
+Removed Swagger Generated Code
+Added following methods which are currently supported by Trulioo's Normalized API:
+	- GetBusinessRegistrationNumbers
+	- GetCountryJOI
+	- GetTransactionRecordDocument
+	- GetPartialResults
+	
+Updated/Added the following Models for Trulioo's Normalized API:
+	- Address
+	- Business
+	- BusinessRegistrationNumber
+	- BusinessRegistrationNumberMask
+	- BusinessSearchRequestBusinessSearchModel
+	- BusinessSearchResponseIndustryCode
+	- DataFields
+	- PersonOfSignificantControl
+	- Record
+	- Result
+	- RiskMonitorSettings
+	- TestEntityDataFields
+	- TransactionRecordResult
+	- VerifyRequest
+	- VerifyResult
+	- VerifyResultPartial
+
 ## Version 1.0.5
 
 Added support for EnhancedProfile for KYB Verification Requests.

@@ -3,7 +3,7 @@ apply plugin: 'eclipse'
 apply plugin: 'java'
 
 group = 'com.trulioo'
-version = 'v1.0.5.0'
+version = 'v1.0.6.0'
 
 buildscript {
     repositories {

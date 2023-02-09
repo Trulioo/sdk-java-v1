@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **customerReferenceID** | **String** | Customer Reference Id |  [optional]
 **dataFields** | [**DataFields**](DataFields.md) | The data field name-value pairs for the data elements on which the verification is to be performed | 
 **verboseMode** | **Boolean** | Verbose Mode Output Flag. |  [optional]
+**batchRecordID** | **String** | Correlation ID for running batches via the batch tool. |  [optional]
 
 
 

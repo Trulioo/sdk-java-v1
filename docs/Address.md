@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **address1** | **String** | Address1 |  [optional]
 **addressType** | **String** | Address Type |  [optional]
 **stateProvince** | **String** | State Province |  [optional]
+**country** | **String** | Country | [optional]
+**countryCode** | **String** | ISO-2 CountryCode | [optional]
 
 
 
