@@ -1,10 +1,10 @@
 # ConnectionApi
 
-All URIs are relative to *https://api.globaldatacompany.com*
+All URIs are relative to *https://api.trulioo.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**connectionAsyncCallbackUrl**](ConnectionApi.md#connectionAsyncCallbackUrl) | **POST** /connection/v1/async-callback | If set, the transaction will run asynchronously and Trulioo will try to update the client with transaction state updates until completed. If callback is not desired but the client wants to initiate an asynchronous transaction, provide https://api.globaldatacompany.com/connection/v1/async-callback as the Callback URL.
+[**connectionAsyncCallbackUrl**](ConnectionApi.md#connectionAsyncCallbackUrl) | **POST** /connection/v1/async-callback | If set, the transaction will run asynchronously and Trulioo will try to update the client with transaction state updates until completed. If callback is not desired but the client wants to initiate an asynchronous transaction, provide https://api.trulioo.com/connection/v1/async-callback as the Callback URL.
 [**sayHello**](ConnectionApi.md#sayHello) | **GET** /connection/v1/sayhello/{name} | This method enables you to check if your system can connect to our system. You can even use a web browser to verify a connection to our system.
 [**testAuthentication**](ConnectionApi.md#testAuthentication) | **GET** /connection/v1/testauthentication | This method enables you to check if your credentials are valid. You will need to use basic authentication to ensure a successful response.
 
@@ -13,7 +13,7 @@ Method | HTTP request | Description
 # **connectionAsyncCallbackUrl**
 > Object connectionAsyncCallbackUrl(transactionStatus)
 
-If set, the transaction will run asynchronously and Trulioo will try to update the client with transaction state updates until completed. If callback is not desired but the client wants to initiate an asynchronous transaction, provide https://api.globaldatacompany.com/connection/v1/async-callback as the Callback URL.
+If set, the transaction will run asynchronously and Trulioo will try to update the client with transaction state updates until completed. If callback is not desired but the client wants to initiate an asynchronous transaction, provide https://api.trulioo.com/connection/v1/async-callback as the Callback URL.
 
 ### Example
 ```java

@@ -126,7 +126,7 @@ connectionClient.testAuthenticationAsync(new ApiCallback<String>() {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://api.globaldatacompany.com*
+All URIs are relative to *https://api.trulioo.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -141,7 +141,7 @@ Class | Method | HTTP request | Description
 *ConfigurationApi* | [**getFields**](docs/ConfigurationApi.md#getFields) | **GET** /configuration/v1/fields/{configurationName}/{countryCode} | Generates json schema for the API, the schema is dynamic based on the country and configuration you are using.  http://json-schema.org/documentation.html
 *ConfigurationApi* | [**getRecommendedFields**](docs/ConfigurationApi.md#getRecommendedFields) | **GET** /configuration/v1/recommendedfields/{configurationName}/{countryCode} | Generates json schema for the API, the schema is dynamic based on the recommendedFields country and account you are using.  http://json-schema.org/documentation.html
 *ConfigurationApi* | [**getTestEntities**](docs/ConfigurationApi.md#getTestEntities) | **GET** /configuration/v1/testentities/{configurationName}/{countryCode} | Gets the test entities configured for your product and country.
-*ConnectionApi* | [**connectionAsyncCallbackUrl**](docs/ConnectionApi.md#connectionAsyncCallbackUrl) | **POST** /connection/v1/async-callback | If set, the transaction will run asynchronously and Trulioo will try to update the client with transaction state updates until completed. If callback is not desired but the client wants to initiate an asynchronous transaction, provide https://api.globaldatacompany.com/connection/v1/async-callback as the Callback URL.
+*ConnectionApi* | [**connectionAsyncCallbackUrl**](docs/ConnectionApi.md#connectionAsyncCallbackUrl) | **POST** /connection/v1/async-callback | If set, the transaction will run asynchronously and Trulioo will try to update the client with transaction state updates until completed. If callback is not desired but the client wants to initiate an asynchronous transaction, provide https://api.trulioo.com/connection/v1/async-callback as the Callback URL.
 *ConnectionApi* | [**sayHello**](docs/ConnectionApi.md#sayHello) | **GET** /connection/v1/sayhello/{name} | This method enables you to check if your system can connect to our system. You can even use a web browser to verify a connection to our system.
 *ConnectionApi* | [**testAuthentication**](docs/ConnectionApi.md#testAuthentication) | **GET** /connection/v1/testauthentication | This method enables you to check if your credentials are valid. You will need to use basic authentication to ensure a successful response.
 *VerificationsApi* | [**documentDownload**](docs/VerificationsApi.md#documentDownload) | **GET** /verifications/v1/documentdownload/{transactionRecordId}/{fieldName} | Download Document

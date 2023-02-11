@@ -103,7 +103,7 @@ public class ConnectionApi {
     }
 
     /**
-     * If set, the transaction will run asynchronously and Trulioo will try to update the client with transaction state updates until completed. If callback is not desired but the client wants to initiate an asynchronous transaction, provide https://api.globaldatacompany.com/connection/v1/async-callback as the Callback URL.
+     * If set, the transaction will run asynchronously and Trulioo will try to update the client with transaction state updates until completed. If callback is not desired but the client wants to initiate an asynchronous transaction, provide https://api.trulioo.com/connection/v1/async-callback as the Callback URL.
      * 
      * @param transactionStatus transactionStatus (required)
      * @return Object
@@ -115,7 +115,7 @@ public class ConnectionApi {
     }
 
     /**
-     * If set, the transaction will run asynchronously and Trulioo will try to update the client with transaction state updates until completed. If callback is not desired but the client wants to initiate an asynchronous transaction, provide https://api.globaldatacompany.com/connection/v1/async-callback as the Callback URL.
+     * If set, the transaction will run asynchronously and Trulioo will try to update the client with transaction state updates until completed. If callback is not desired but the client wants to initiate an asynchronous transaction, provide https://api.trulioo.com/connection/v1/async-callback as the Callback URL.
      * 
      * @param transactionStatus transactionStatus (required)
      * @return ApiResponse&lt;Object&gt;
@@ -128,7 +128,7 @@ public class ConnectionApi {
     }
 
     /**
-     * If set, the transaction will run asynchronously and Trulioo will try to update the client with transaction state updates until completed. If callback is not desired but the client wants to initiate an asynchronous transaction, provide https://api.globaldatacompany.com/connection/v1/async-callback as the Callback URL. (asynchronously)
+     * If set, the transaction will run asynchronously and Trulioo will try to update the client with transaction state updates until completed. If callback is not desired but the client wants to initiate an asynchronous transaction, provide https://api.trulioo.com/connection/v1/async-callback as the Callback URL. (asynchronously)
      * 
      * @param transactionStatus transactionStatus (required)
      * @param callback The callback to be executed when the API call finishes

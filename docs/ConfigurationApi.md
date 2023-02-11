@@ -1,6 +1,6 @@
 # ConfigurationApi
 
-All URIs are relative to *https://api.globaldatacompany.com*
+All URIs are relative to *https://api.trulioo.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
