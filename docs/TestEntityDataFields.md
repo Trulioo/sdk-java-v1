@@ -1,9 +1,9 @@
-
-# DataFields
+# TestEntityDataFields
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**testEntityName** | **String** |   |  [optional]
 **personInfo** | [**PersonInfo**](PersonInfo.md) | Personal Information |  [optional]
 **location** | [**Location**](Location.md) | Location Information |  [optional]
 **communication** | [**Communication**](Communication.md) | Communication Information |  [optional]
@@ -14,6 +14,3 @@ Name | Type | Description | Notes
 **business** | [**Business**](Business.md) | Business information |  [optional]
 **risk** | [**RiskMonitorSettings**](RiskMonitorSettings.md) | Risk monitoring options |  [optional]
 **countrySpecific** | [**Map&lt;String, Map&lt;String, String&gt;&gt;**](Map.md) | CountrySpecific fields  {\&quot;CountryCode\&quot; : {\&quot;Field1\&quot; : \&quot;Value\&quot;,  \&quot;Field2\&quot; : \&quot;Value\&quot;  }} |  [optional]
-
-
-
