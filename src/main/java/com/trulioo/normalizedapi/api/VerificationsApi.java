@@ -70,7 +70,7 @@ public class VerificationsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            "application/json", "text/json"
+            "application/json", "text/json", "application/pdf"
         };
         final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
@@ -121,8 +121,8 @@ public class VerificationsApi {
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Object documentDownload(String transactionRecordId, String fieldName) throws ApiException {
-        ApiResponse<Object> resp = documentDownloadWithHttpInfo(transactionRecordId, fieldName);
+    public String documentDownload(String transactionRecordId, String fieldName) throws ApiException {
+        ApiResponse<String> resp = documentDownloadWithHttpInfo(transactionRecordId, fieldName);
         return resp.getData();
     }
 
@@ -134,9 +134,9 @@ public class VerificationsApi {
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Object> documentDownloadWithHttpInfo(String transactionRecordId, String fieldName) throws ApiException {
+    public ApiResponse<String> documentDownloadWithHttpInfo(String transactionRecordId, String fieldName) throws ApiException {
         okhttp3.Call call = documentDownloadValidateBeforeCall(transactionRecordId, fieldName, null, null);
-        Type localVarReturnType = new TypeToken<Object>(){}.getType();
+        Type localVarReturnType = new TypeToken<String>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -770,7 +770,7 @@ public class VerificationsApi {
     
     /**
      * Build call for getPartialResults
-     * @param TransactionID (required)
+     * @param transactionID (required)
      * @param progressListener
      * @param progressRequestListener
      * @return Call to execute
