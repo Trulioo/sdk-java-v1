@@ -1239,7 +1239,6 @@ public class ConfigurationApi {
     
     /**
      * Build call to get the currently configured business registration numbers, for country and an optionally supplied jurisdiction
-     * @param configurationName (required)
      * @param countryCode (required)
      * @param jurisdictionCode
      * @return The request call
@@ -1263,7 +1262,6 @@ public class ConfigurationApi {
     
     /**
      * Build call to get the currently configured business registration numbers, for country and an optionally supplied jurisdiction
-     * @param configurationName (required)
      * @param countryCode (required)
      * @param jurisdictionCode
      * @param callback The callback to be executed when the API call finishes
@@ -1298,9 +1296,7 @@ public class ConfigurationApi {
     
     /**
      * Build call to get the currently configured business registration numbers, for country and an optionally supplied jurisdiction
-     * @param configurationName (required)
      * @param countryCode (required)
-     * @param jurisdictionCode
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1379,7 +1375,7 @@ public class ConfigurationApi {
     /**
      * Build call to get the jurisdictions of incorporation for a country
      * @param countryCode (required)
-     * @return List<CountrySubdivision>
+     * @return List&lt;CountrySubdivision&gt;
      * @throws ApiException
      */
     public List<CountrySubdivision> getCountryJOI(String countryCode) throws ApiException { 
