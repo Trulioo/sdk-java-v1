@@ -18,12 +18,14 @@ import com.trulioo.normalizedapi.model.Consent;
 import com.trulioo.normalizedapi.model.CountrySubdivision;
 import com.trulioo.normalizedapi.model.NormalizedDatasourceGroupCountry;
 import com.trulioo.normalizedapi.model.TestEntityDataFields;
+import com.trulioo.normalizedapi.StringUtil;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Arrays;
 
 public class ConfigurationApi {
     private ApiClient apiClient;
@@ -1185,22 +1187,19 @@ public class ConfigurationApi {
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
-    
-    public okhttp3.Call getBusinessRegistrationNumbersCall(String countryCode, String jurisdictionCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException { 
-    	Object localVarPostBody = null;
-    	Boolean useJurisdictionCode = jurisdictionCode != null;
-        // create path and map variables
-    	String localVarPath = null;
-    	if(useJurisdictionCode) {
-    		localVarPath = "/configuration/v1/businessregistrationnumbers/{countryCode}/{jurisdictionCode}"
-    				.replaceAll("\\{" + "countryCode" + "\\}", apiClient.escapeString(countryCode.toString()))
-    				.replaceAll("\\{" + "jurisdictionCode" + "\\}", apiClient.escapeString(jurisdictionCode.toString()));
-    	}
-    	else {
-    		localVarPath = "/configuration/v1/businessregistrationnumbers/{countryCode}"
-    				.replaceAll("\\{" + "countryCode" + "\\}", apiClient.escapeString(countryCode.toString()));
-    	}
-    	
+
+    public okhttp3.Call getBusinessRegistrationNumbersCall(String countryCode, String jurisdictionCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        String localVarPath = "/configuration/v1/businessregistrationnumbers";
+
+        List<String> resources = Arrays.asList(countryCode, jurisdictionCode);
+
+        for (String x : resources) {
+            if (!StringUtil.isNullOrWhiteSpace(x)) {
+                localVarPath += "/" + apiClient.escapeString(x);
+            }
+        }
+
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
@@ -1228,9 +1227,9 @@ public class ConfigurationApi {
     }
     
     private okhttp3.Call getBusinessRegistrationNumbersBeforeCall(String countryCode, String jurisdictionCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-    	// verify the required parameter 'countryCode' is set
-        if (countryCode == null) {
-            throw new ApiException("Missing the required parameter 'countryCode' when calling getBusinessRegistrationNumbers(Async)");
+        // if 'jurisdictionCode' is set, verify the required parameter 'countryCode' is also set.
+        if (StringUtil.isNullOrWhiteSpace(countryCode) && !StringUtil.isNullOrWhiteSpace(jurisdictionCode)) {
+            throw new ApiException("The parameter 'countryCode' is required in order to use the parameter 'jurisdictionCode' when calling getBusinessRegistrationNumbers(Async)");
         }
         
         okhttp3.Call call = getBusinessRegistrationNumbersCall(countryCode, jurisdictionCode, progressListener, progressRequestListener);
@@ -1238,7 +1237,7 @@ public class ConfigurationApi {
     }
     
     /**
-     * Build call to get the currently configured business registration numbers, for country and an optionally supplied jurisdiction
+     * Build call to get the currently configured business registration numbers, for an optionally supplied country and an optionally supplied jurisdiction
      * @param countryCode (required)
      * @param jurisdictionCode
      * @return The request call
@@ -1253,7 +1252,12 @@ public class ConfigurationApi {
     	ApiResponse<List<BusinessRegistrationNumber>> response = getBusinessRegistrationNumbersWithHttpInfo(countryCode, null);
     	return response.getData();
     }
-    
+
+    public List<BusinessRegistrationNumber> getBusinessRegistrationNumbers() throws ApiException {
+        ApiResponse<List<BusinessRegistrationNumber>> response = getBusinessRegistrationNumbersWithHttpInfo(null, null);
+        return response.getData();
+    }
+
     public ApiResponse<List<BusinessRegistrationNumber>> getBusinessRegistrationNumbersWithHttpInfo(String countryCode, String jurisdictionCode) throws ApiException {
     	okhttp3.Call call = getBusinessRegistrationNumbersBeforeCall(countryCode, jurisdictionCode, null, null);
     	Type localVarReturnType = new TypeToken<List<BusinessRegistrationNumber>>(){}.getType();
@@ -1321,9 +1325,36 @@ public class ConfigurationApi {
         }
         
         okhttp3.Call call = getBusinessRegistrationNumbersBeforeCall(countryCode, null, progressListener, progressRequestListener);
-    	Type localVarReturnType = new TypeToken<List<BusinessRegistrationNumber>>(){}.getType();
-    	apiClient.executeAsync(call, localVarReturnType, callback);
-    	
+        Type localVarReturnType = new TypeToken<List<BusinessRegistrationNumber>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+
+        return call;
+    }
+
+    public okhttp3.Call getBusinessRegistrationNumbersAsync(final ApiCallback<List<BusinessRegistrationNumber>> callback) throws ApiException {
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        okhttp3.Call call = getBusinessRegistrationNumbersBeforeCall(null, null, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<BusinessRegistrationNumber>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+
         return call;
     }
     
@@ -1331,8 +1362,12 @@ public class ConfigurationApi {
     	Object localVarPostBody = null;
         
         // create path and map variables
-        String localVarPath = "/configuration/v1/countryJOI/{countryCode}"
-            .replaceAll("\\{" + "countryCode" + "\\}", apiClient.escapeString(countryCode.toString()));
+        String localVarPath = "/configuration/v1/countryJOI";
+
+        if (!StringUtil.isNullOrWhiteSpace(countryCode)) {
+            localVarPath += "/" + apiClient.escapeString(countryCode.toString());
+        }
+
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
@@ -1363,11 +1398,6 @@ public class ConfigurationApi {
     
         
     private okhttp3.Call getCountryJOIBeforeCall(String countryCode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        // verify the required parameter 'countryCode' is set
-        if (countryCode == null) {
-            throw new ApiException("Missing the required parameter 'countryCode' when calling getCountryJOI(Async)");
-        }
-        
         okhttp3.Call call = getCountryJOICall(countryCode, progressListener, progressRequestListener);
         return call;
     }

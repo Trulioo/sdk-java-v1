@@ -1,5 +1,9 @@
 # Trulioo SDK for Java Changelog
 
+## Version 1.0.7
+
+Updated methods from Napi (GetCountryJOI, GetBusinessRegistrationNumbersAsync) to get configurations for all countries through one call.
+
 ## Version 1.0.6
 
 Removed Swagger Generated Code

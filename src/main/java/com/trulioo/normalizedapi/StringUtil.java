@@ -38,4 +38,14 @@ public class StringUtil {
     }
     return out.toString();
   }
+
+  /**
+   * Check if the given String is null, empty, or contains only whitespace.
+   *
+   * @param value The value to check
+   * @return true if satisfied
+   */
+  public static boolean isNullOrWhiteSpace(String value) {
+    return value == null || (value.trim().length() <= 0);
+  }
 }
