@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.trulioo</groupId>
   <artifactId>normalizedapi</artifactId>
-  <version>1.0.6</version>
+  <version>1.0.7</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -61,7 +61,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.trulioo:normalizedapi:1.0.6"
+compile "com.trulioo:normalizedapi:1.0.7"
 ```
 
 ### Others
@@ -74,7 +74,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/normalizedapi-1.0.6.jar`
+* `target/normalizedapi-1.0.7.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
