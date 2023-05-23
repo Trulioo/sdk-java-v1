@@ -3,6 +3,7 @@
 ## Version 1.0.7
 
 Updated methods from Napi (GetCountryJOI, GetBusinessRegistrationNumbersAsync) to get configurations for all countries through one call.
+Updated CountrySubdivision model to include CountryCode field.
 
 ## Version 1.0.6
 

@@ -15,6 +15,9 @@ public class CountrySubdivision {
   @SerializedName("ParentCode")
   private String parentCode = null;
 
+  @SerializedName("CountryCode")
+  private String countryCode = null;
+
   public CountrySubdivision name(String name) {
     this.name = name;
     return this;
@@ -65,6 +68,22 @@ public class CountrySubdivision {
   public void setParentCode(String parentCode) {
     this.parentCode = parentCode;
   }
+
+  /**
+   * Code for the country
+   * @return countryCode
+  **/
+  public String getCountryCode() {
+    return countryCode;
+  }
+  public void setCountryCode(String countryCode) {
+    this.countryCode = countryCode;
+  }
+  public CountrySubdivision countryCode(String countryCode) {
+    this.countryCode = countryCode;
+    return this;
+  }
+
 
 }
 
