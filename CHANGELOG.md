@@ -1,5 +1,8 @@
 # Trulioo SDK for Java Changelog
 
+## Version 1.0.8
+Added method from Napi (GetAllDatasources) to get all datasources through one call for all countries.
+
 ## Version 1.0.7
 
 Updated methods from Napi (GetCountryJOI, GetBusinessRegistrationNumbersAsync) to get configurations for all countries through one call.

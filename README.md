@@ -1,6 +1,6 @@
 # Trulioo SDK for Java #
 
-## Version 1.0.7
+## Version 1.0.8
 
 ### Introduction
 
@@ -51,7 +51,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.trulioo</groupId>
   <artifactId>normalizedapi</artifactId>
-  <version>1.0.7</version>
+  <version>1.0.8</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -61,7 +61,7 @@ Add this dependency to your project's POM:
 Add this dependency to your project's build file:
 
 ```groovy
-compile "com.trulioo:normalizedapi:1.0.7"
+compile "com.trulioo:normalizedapi:1.0.8"
 ```
 
 ### Others
@@ -74,7 +74,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/normalizedapi-1.0.7.jar`
+* `target/normalizedapi-1.0.8.jar`
 * `target/lib/*.jar`
 
 ## Getting Started
@@ -132,6 +132,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *BusinessApi* | [**getBusinessSearchResult**](docs/BusinessApi.md#getBusinessSearchResult) | **GET** /business/v1/search/transactionrecord/{id} | returns the a business search result.
 *BusinessApi* | [**search**](docs/BusinessApi.md#search) | **POST** /business/v1/search | Calling this method will perform a business search.
+*ConfigurationApi* | [**getAllDatasources**](docs/ConfigurationApi.md#getAllDatasources) | **GET** /configuration/v1/alldatasources/Identity Verification | 
 *ConfigurationApi* | [**getConsents**](docs/ConfigurationApi.md#getConsents) | **GET** /configuration/v1/consents/{configurationName}/{countryCode} | This method retrieves the consents required for data sources currently configured in your account configuration.   The response for this method contains a collection of strings that Verify method&#39;s ConsentForDataSources field expects to perform a verification using those data sources.   A failure to provide an element from the string collection will lead to a &lt;a class&#x3D;\&quot;link-to-api\&quot; href&#x3D;\&quot;#errors\&quot;&gt;1005&lt;/a&gt; service error.
 *ConfigurationApi* | [**getCountryCodes**](docs/ConfigurationApi.md#getCountryCodes) | **GET** /configuration/v1/countrycodes/{configurationName} | This method retrieves all the countries that are available to perform a verification.
 *ConfigurationApi* | [**getCountrySubdivisions**](docs/ConfigurationApi.md#getCountrySubdivisions) | **GET** /configuration/v1/countrysubdivisions/{countryCode} | Gets the provinces states or other subdivisions for a country, mostly matches ISO 3166-2
@@ -187,7 +188,7 @@ Class | Method | HTTP request | Description
  - [VerifyRequest](docs/VerifyRequest.md)
  - [VerifyResult](docs/VerifyResult.md)
  - [TransactionRecordResult](docs/TransactionRecordResult.md)
-
+ - [NormalizedDatasourceGroupsWithCountry](docs/NormalizedDatasourceGroupsWithCountry.md)
 
 ## Documentation for Authorization
 

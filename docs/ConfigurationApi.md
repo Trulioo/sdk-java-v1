@@ -4,6 +4,7 @@ All URIs are relative to *https://api.trulioo.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**getAllDatasources**](ConfigurationApi.md#getAllDatasources) | **GET** /configuration/v1/alldatasources/Identity Verification | Gets all the datasources available, for when a specific country is not provided.
 [**getConsents**](ConfigurationApi.md#getConsents) | **GET** /configuration/v1/consents/{configurationName}/{countryCode} | This method retrieves the consents required for data sources currently configured in your account configuration.   The response for this method contains a collection of strings that Verify method&#39;s ConsentForDataSources field expects to perform a verification using those data sources.   A failure to provide an element from the string collection will lead to a &lt;a class&#x3D;\&quot;link-to-api\&quot; href&#x3D;\&quot;#errors\&quot;&gt;1005&lt;/a&gt; service error.
 [**getCountryCodes**](ConfigurationApi.md#getCountryCodes) | **GET** /configuration/v1/countrycodes/{configurationName} | This method retrieves all the countries that are available to perform a verification.
 [**getCountrySubdivisions**](ConfigurationApi.md#getCountrySubdivisions) | **GET** /configuration/v1/countrysubdivisions/{countryCode} | Gets the provinces states or other subdivisions for a country, mostly matches ISO 3166-2
@@ -14,6 +15,37 @@ Method | HTTP request | Description
 [**getRecommendedFields**](ConfigurationApi.md#getRecommendedFields) | **GET** /configuration/v1/recommendedfields/{configurationName}/{countryCode} | Generates json schema for the API, the schema is dynamic based on the recommendedFields country and account you are using.  http://json-schema.org/documentation.html
 [**getTestEntities**](ConfigurationApi.md#getTestEntities) | **GET** /configuration/v1/testentities/{configurationName}/{countryCode} | Gets the test entities configured for your product and country.
 
+<a name="getAllDatasources"></a>
+# **getAllDatasources**
+> List&lt;NormalizedDatasourceGroupsWithCountry&gt; getAllDatasources()
+### Example
+```java
+// Import classes:
+//import com.trulioo.normalizedapi.ApiClient;
+//import com.trulioo.normalizedapi.ApiException;
+//import com.trulioo.normalizedapi.Configuration;
+//import com.trulioo.normalizedapi.auth.*;
+//import com.trulioo.normalizedapi.api.ConfigurationApi;
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+// Configure HTTP basic authorization: basic
+HttpBasicAuth basic = (HttpBasicAuth) defaultClient.getAuthentication("basic");
+basic.setUsername("YOUR USERNAME");
+basic.setPassword("YOUR PASSWORD");
+ConfigurationApi apiInstance = new ConfigurationApi();
+try {
+    List<NormalizedDatasourceGroupsWithCountry> result = apiInstance.getAllDatasources();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling ConfigurationApi#getAllDatasources");
+    e.printStackTrace();
+}
+```
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+[**List&lt;NormalizedDatasourceGroupsWithCountry&gt;**](NormalizedDatasourceGroupsWithCountry.md)
+### Authorization
+[basic](../README.md#basic)
 
 <a name="getConsents"></a>
 # **getConsents**

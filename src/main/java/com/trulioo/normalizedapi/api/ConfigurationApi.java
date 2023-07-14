@@ -13,12 +13,15 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 
+import com.trulioo.normalizedapi.model.NormalizedDatasourceGroupsWithCountry;
 import com.trulioo.normalizedapi.model.BusinessRegistrationNumber;
 import com.trulioo.normalizedapi.model.Consent;
 import com.trulioo.normalizedapi.model.CountrySubdivision;
 import com.trulioo.normalizedapi.model.NormalizedDatasourceGroupCountry;
 import com.trulioo.normalizedapi.model.TestEntityDataFields;
 import com.trulioo.normalizedapi.StringUtil;
+import okhttp3.Call;
+import okhttp3.OkHttpClient;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -44,6 +47,91 @@ public class ConfigurationApi {
 
     public void setApiClient(ApiClient apiClient) {
         this.apiClient = apiClient;
+    }
+
+    /* Build call for getAllDatasources */
+    private okhttp3.Call getAllDatasourcesCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+        // create path and map variables
+        String localVarPath = "/configuration/v1/alldatasources/Identity Verification".replaceAll("\\{format\\}","json");
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+        final String[] localVarAccepts = {
+            "application/json", "text/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if(progressListener != null) {
+            OkHttpClient.Builder builder = apiClient.getHttpClient().newBuilder();
+            builder.networkInterceptors().add(new okhttp3.Interceptor() {
+                @Override
+                public okhttp3.Response intercept(okhttp3.Interceptor.Chain chain) throws IOException {
+                    okhttp3.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                            .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                            .build();
+                }
+            });
+            apiClient.setHttpClient(builder.build());
+        }
+        String[] localVarAuthNames = new String[] { "basic" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+    /**
+     *
+     *
+     * @return List&lt;NormalizedDatasourceGroupsWithCountry&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+     public List<NormalizedDatasourceGroupsWithCountry> getAllDatasources() throws ApiException {
+        ApiResponse<List<NormalizedDatasourceGroupsWithCountry>> resp = getAllDatasourcesWithHttpInfo();
+        return resp.getData();
+    }
+    
+     /**
+     *
+     *
+     * @return ApiResponse&lt;List&lt;NormalizedDatasourceGroupsWithCountry&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<NormalizedDatasourceGroupsWithCountry>> getAllDatasourcesWithHttpInfo() throws ApiException {
+        okhttp3.Call call = getAllDatasourcesCall(null, null);
+        Type localVarReturnType = new TypeToken<List<NormalizedDatasourceGroupsWithCountry>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+    /**
+     *  (asynchronously)
+     * 
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public okhttp3.Call getAllDatasourcesAsync(final ApiCallback<List<NormalizedDatasourceGroupsWithCountry>> callback) throws ApiException {
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+        okhttp3.Call call = getAllDatasourcesCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<NormalizedDatasourceGroupsWithCountry>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
     }
 
     /**
