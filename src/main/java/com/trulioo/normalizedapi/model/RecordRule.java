@@ -12,6 +12,12 @@ public class RecordRule {
   @SerializedName("Note")
   private String note = null;
 
+  @SerializedName("SecondaryRuleName")
+  private String secondaryRuleName = null;
+
+  @SerializedName("SecondaryRuleNote")
+  private String secondaryRuleNote = null;
+
   public RecordRule ruleName(String ruleName) {
     this.ruleName = ruleName;
     return this;
@@ -46,5 +52,29 @@ public class RecordRule {
     this.note = note;
   }
 
-}
+  public String getSecondaryRuleName() {
+    return secondaryRuleName;
+  }
 
+  public void setSecondaryRuleName(String secondaryRuleName) {
+    this.secondaryRuleName = secondaryRuleName;
+  }
+
+  public RecordRule secondaryRuleName(String secondaryRuleName) {
+    this.secondaryRuleName = secondaryRuleName;
+    return this;
+  }
+
+  public String getSecondaryRuleNote() {
+    return secondaryRuleNote;
+  }
+
+  public void setSecondaryRuleNote(String secondaryRuleNote) {
+    this.secondaryRuleNote = secondaryRuleNote;
+  }
+
+  public RecordRule secondaryRuleNote(String secondaryRuleNote) {
+    this.secondaryRuleNote = secondaryRuleNote;
+    return this;
+  }
+}
