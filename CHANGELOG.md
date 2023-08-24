@@ -1,5 +1,8 @@
 # Trulioo SDK for Java Changelog
 
+## Version 1.0.9
+Added RecordRule SecondaryRuleName and SecondaryRuleNote properties
+
 ## Version 1.0.8
 Added method from Napi (GetAllDatasources) to get all datasources through one call for all countries.
 
