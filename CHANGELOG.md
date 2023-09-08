@@ -1,5 +1,19 @@
 # Trulioo SDK for Java Changelog
 
+## Version 1.0.10
+Added new document types
+	- RegisterReport
+	- CreditCheck
+	- CreditReport
+	- GISAExtract
+	- VRExtract
+	- RegisterCheck
+  	- TradeRegisterReport
+    - BeneficialOwnersCheck
+	- AnnualAccounts
+	- FiledChanges
+    - FiledDocuments
+
 ## Version 1.0.9
 Added RecordRule SecondaryRuleName and SecondaryRuleNote properties
 
