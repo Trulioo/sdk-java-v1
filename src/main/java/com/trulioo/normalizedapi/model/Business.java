@@ -106,7 +106,7 @@ public class Business {
   @SerializedName("AgentAddressChange")
   private Boolean agentAddressChange = null;
 
-
+  
   public Business businessName(String businessName) {
     this.businessName = businessName;
     return this;
@@ -421,6 +421,194 @@ public class Business {
   public void setAnnualReport(Boolean annualReport) {
 	  this.annualReport = annualReport;
   }
+
+  /**
+   * Whether or not to retrieve register report detail
+   * @return registerReport
+   */
+  public Boolean getRegisterReport() {
+    return registerReport;
+  }
+
+  public void setRegisterReport(Boolean registerReport) {
+    this.registerReport = registerReport;
+  }
+
+  public Business registerReport(Boolean registerReport) {
+    this.registerReport = registerReport;
+    return this;
+  }
+
+  /**
+   * Whether or not to retrieve credit check detail
+   * @return creditCheck
+   */
+  public Boolean getCreditCheck() {
+    return creditCheck;
+  }
+
+  public void setCreditCheck(Boolean creditCheck) {
+    this.creditCheck = creditCheck;
+  }
+
+  public Business creditCheck(Boolean creditCheck) {
+    this.creditCheck = creditCheck;
+    return this;
+  }
+
+  /**
+   * Whether or not to retrieve filed documents detail
+   * @return filedDocuments
+   */
+  public Boolean getFiledDocuments() {
+    return filedDocuments;
+  }
+
+  public void setFiledDocuments(Boolean filedDocuments) {
+    this.filedDocuments = filedDocuments;
+  }
+
+  public Business filedDocuments(Boolean filedDocuments) {
+    this.filedDocuments = filedDocuments;
+    return this;
+  }
+
+  /**
+   * Whether or not to retrieve filed changes detail
+   * @return filedChanges
+   */
+  public Boolean getFiledChanges() {
+    return filedChanges;
+  }
+
+  public void setFiledChanges(Boolean filedChanges) {
+    this.filedChanges = filedChanges;
+  }
+
+  public Business filedChanges(Boolean filedChanges) {
+    this.filedChanges = filedChanges;
+    return this;
+  }
+
+  /**
+   * Whether or not to check beneficial owners
+   * @return beneficialOwnersCheck
+   */
+  public Boolean getBeneficialOwnersCheck() {
+    return beneficialOwnersCheck;
+  }
+
+  public void setBeneficialOwnersCheck(Boolean beneficialOwnersCheck) {
+    this.beneficialOwnersCheck = beneficialOwnersCheck;
+  }
+
+  public Business beneficialOwnersCheck(Boolean beneficialOwnersCheck) {
+    this.beneficialOwnersCheck = beneficialOwnersCheck;
+    return this;
+  }
+
+  /**
+   * Whether or not to retrieve annual accounts
+   * @return annualAccounts
+   */
+  public Boolean getAnnualAccounts() {
+    return annualAccounts;
+  }
+
+  public void setAnnualAccounts(Boolean annualAccounts) {
+    this.annualAccounts = annualAccounts;
+  }
+
+  public Business annualAccounts(Boolean annualAccounts) {
+    this.annualAccounts = annualAccounts;
+    return this;
+  }
+
+  /**
+   * Whether or not to retrieve VR extract
+   * @return vrExtract
+   */
+  public Boolean getVRExtract() {
+    return vrExtract;
+  }
+
+  public void setVRExtract(Boolean vrExtract) {
+    this.vrExtract = vrExtract;
+  }
+
+  public Business vrExtract(Boolean vrExtract) {
+    this.vrExtract = vrExtract;
+    return this;
+  }
+
+  /**
+   * Whether or not to perform register check
+   * @return registerCheck
+   */
+  public Boolean getRegisterCheck() {
+    return registerCheck;
+  }
+
+  public void setRegisterCheck(Boolean registerCheck) {
+    this.registerCheck = registerCheck;
+  }
+
+  public Business registerCheck(Boolean registerCheck) {
+    this.registerCheck = registerCheck;
+    return this;
+  }
+
+  /**
+   * Whether or not to retrieve trade register report
+   * @return tradeRegisterReport
+   */
+  public Boolean getTradeRegisterReport() {
+    return tradeRegisterReport;
+  }
+
+  public void setTradeRegisterReport(Boolean tradeRegisterReport) {
+    this.tradeRegisterReport = tradeRegisterReport;
+  }
+
+  public Business tradeRegisterReport(Boolean tradeRegisterReport) {
+    this.tradeRegisterReport = tradeRegisterReport;
+    return this;
+  }
+
+  /**
+   * Whether or not to retrieve the credit report
+   * @return creditReport
+   */
+  public Boolean getCreditReport() {
+    return creditReport;
+  }
+
+  public void setCreditReport(Boolean creditReport) {
+    this.creditReport = creditReport;
+  }
+
+  public Business creditReport(Boolean creditReport) {
+    this.creditReport = creditReport;
+    return this;
+  }
+
+  /**
+   * Whether or not to retrieve the GISA extract
+   * @return gisaExtract
+   */
+  public Boolean getGISAExtract() {
+    return gisaExtract;
+  }
+
+  public void setGISAExtract(Boolean gisaExtract) {
+    this.gisaExtract = gisaExtract;
+  }
+
+  public Business gisaExtract(Boolean gisaExtract) {
+    this.gisaExtract = gisaExtract;
+    return this;
+  }
+}
 
   /**
    * Whether or not to retrieve register report detail
