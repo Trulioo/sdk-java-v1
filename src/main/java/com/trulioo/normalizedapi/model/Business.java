@@ -97,6 +97,16 @@ public class Business {
   @SerializedName("FiledDocuments")
   private Boolean filedDocuments = null;
 
+  @SerializedName("CompletePlus")
+  private Boolean completePlus = null;
+
+  @SerializedName("ArticleOfAuthority")
+  private Boolean articleOfAuthority = null;
+
+  @SerializedName("AgentAddressChange")
+  private Boolean agentAddressChange = null;
+
+
   public Business businessName(String businessName) {
     this.businessName = businessName;
     return this;
@@ -598,5 +608,57 @@ public class Business {
     this.gisaExtract = gisaExtract;
     return this;
   }
+
+  public Business completePlus(Boolean completePlus) {
+    this.completePlus = completePlus;
+    return this;
+  }
+
+  /**
+   * Whether or not to perform a complete plus transaction
+   * @return completePlus
+   **/
+  public Boolean getCompletePlus() {
+    return completePlus;
+  }
+
+  public void setCompletePlus(Boolean completePlus) {
+    this.completePlus = completePlus;
+  }
+
+  public Business articleOfAuthority(Boolean articleOfAuthority) {
+    this.articleOfAuthority = articleOfAuthority;
+    return this;
+  }
+
+  /**
+   * Whether or not to retrieve article of authority document
+   * @return articleOfAuthority
+   **/
+  public Boolean getArticleOfAuthority() {
+    return articleOfAuthority;
+  }
+
+  public void setArticleOfAuthority(Boolean articleOfAuthority) {
+    this.articleOfAuthority = articleOfAuthority;
+  }
+
+  public Business agentAddressChange(Boolean agentAddressChange) {
+    this.agentAddressChange = agentAddressChange;
+    return this;
+  }
+
+  /**
+   * Whether or not to retrieve agent address change document
+   * @return agentAddressChange
+   **/
+  public Boolean getAgentAddressChange() {
+    return agentAddressChange;
+  }
+
+  public void setAgentAddressChange(Boolean agentAddressChange) {
+    this.agentAddressChange = agentAddressChange;
+  }
+
 }
 

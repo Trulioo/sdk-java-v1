@@ -1,5 +1,11 @@
 # Trulioo SDK for Java Changelog
 
+## Version 1.0.11
+Add new document types
+ - CompletePlus
+ - ArticleOfAuthority 
+ - AgentAddressChange
+
 ## Version 1.0.10
 Added new document types
 	- RegisterReport
