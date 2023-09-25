@@ -659,6 +659,4 @@ public class Business {
   public void setAgentAddressChange(Boolean agentAddressChange) {
     this.agentAddressChange = agentAddressChange;
   }
-
 }
-
